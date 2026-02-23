@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 19:53:19 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/23 19:52:26 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/23 20:09:04 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include "LibFT/libft.h"
+#include "push_swap.h"
 
-void	sa(t_list **a);
-void	sb(t_list **b);
-void	ss(t_list **a, t_list **b);
-void	pb(t_list **b, t_list **a);
-void	pa(t_list **a, t_list **b);
-void	ra(t_list **a);
-#endif
+void	ra(t_list **a)
+{
+	t_list	*temp;
+
+	if (!a || !(*a))
+		return ;
+	temp = *a;
+	ft_lstadd_back(a, temp);
+	*a = (*a)->next;
+	temp->next = NULL;
+}

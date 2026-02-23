@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 19:49:39 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/23 19:54:03 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ int main(int argc, char *argv[])
 	else if (ft_strncmp(argv[1], "pa", 2) == 0)
 	{
 		pa(&a_head, &b_head);
+	}
+	else if (ft_strncmp(argv[1], "ra", 2) == 0)
+	{
+		ra(&a_head);
 	}
 	printf("a b\n___\n");
 
