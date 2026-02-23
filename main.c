@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 16:15:16 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/23 16:27:22 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ int main(int argc, char *argv[])
 
 	while(i < argc - 2)
 	{
-		printf("girdim\n");
 		ft_lstadd_back(&a_head, ft_lstnew(ft_strdup(argv[i + 2])));
 		i++;
 	}
 	i = 0;
 	while(i < argc - 2)
 	{
-		printf("girdim\n");
 		ft_lstadd_back(&b_head, ft_lstnew(ft_strdup(argv[i + 2])));
 		i++;
 	}
@@ -49,7 +47,7 @@ int main(int argc, char *argv[])
 	}
 	else if (ft_strncmp(argv[1], "ss", 2) == 0)
 	{
-		ss(a_head, b_head);
+		ss(&a_head, &b_head);
 	}
 	else if (ft_strncmp(argv[1], "pb", 2) == 0)
 	{

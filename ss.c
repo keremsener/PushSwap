@@ -6,14 +6,14 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:04:47 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 14:53:19 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/23 16:28:26 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ss(t_list *a, t_list *b)
+void    ss(t_list **a, t_list **b)
 {
-    sa(a->next, a->next->next);
-    sb(b->next, b->next->next);
+    sa(a);
+    sb(b);
 }
