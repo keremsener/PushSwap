@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 21:37:56 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/23 21:41:13 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ int main(int argc, char *argv[])
 	else if (ft_strncmp(argv[1], "rrb", 3) == 0)
 	{
 		rrb(&b_head);
+	}
+	else if (ft_strncmp(argv[1], "rrr", 3) == 0)
+	{
+		rrr(&a_head, &b_head);
 	}
 	printf("a b\n___\n");
 
