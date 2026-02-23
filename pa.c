@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 19:45:16 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/23 19:44:18 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/23 19:45:05 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include "LibFT/libft.h"
+#include "push_swap.h"
 
-void	sa(t_list **a);
-void	sb(t_list **b);
-void	ss(t_list **a, t_list **b);
-void	pb(t_list **b, t_list **a);
-void	pa(t_list **a, t_list **b);
-#endif
+void	pa(t_list **a, t_list **b)
+{
+	if (!a || !b)
+		return ;
+	ft_lstadd_front(a, *b);
+}
