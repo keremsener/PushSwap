@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 20:29:19 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/23 20:26:54 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/23 21:28:05 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include "LibFT/libft.h"
+#include "push_swap.h"
+#include <stdio.h>
 
-void	sa(t_list **a);
-void	sb(t_list **b);
-void	ss(t_list **a, t_list **b);
-void	pb(t_list **b, t_list **a);
-void	pa(t_list **a, t_list **b);
-void	ra(t_list **a);
-void	rb(t_list **b);
-void	rr(t_list **a, t_list **b);
-void	rra(t_list **a);
-#endif
+void	rra(t_list **a)
+{
+	t_list	*temp;
+	t_list	*temp2;
+
+	if (!a || !(*a) || !(*a)->next)
+		return ;
+	temp = *a;
+	while (temp->next->next != NULL)
+	{
+		temp = temp->next;
+	}
+	temp2 = temp->next;
+	temp->next = NULL;
+	ft_lstadd_front(a, temp2);
+
+}
