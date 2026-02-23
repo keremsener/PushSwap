@@ -6,13 +6,15 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:35:45 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 15:06:26 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/23 19:41:58 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    pb(t_list **b, t_list *a)
+void	pb(t_list **b, t_list **a)
 {
-	ft_lstadd_front(b,a->next);
+	if (!b || !a)
+		return ;
+	ft_lstadd_front(b, *a);
 }

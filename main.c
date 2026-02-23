@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 16:27:22 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/23 19:40:04 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,18 @@ int main(int argc, char *argv[])
 		ft_lstadd_back(&a_head, ft_lstnew(ft_strdup(argv[i + 2])));
 		i++;
 	}
-	i = 0;
+	i = 0;/* 
 	while(i < argc - 2)
 	{
 		ft_lstadd_back(&b_head, ft_lstnew(ft_strdup(argv[i + 2])));
 		i++;
-	}
+	} */
 	if (ft_strncmp(argv[1], "sa", 2) == 0)
 	{
 		sa(&a_head);
 	}
 	else if (ft_strncmp(argv[1], "sb", 2) == 0)
 	{
-		
 		sb(&b_head);
 	}
 	else if (ft_strncmp(argv[1], "ss", 2) == 0)
@@ -51,7 +50,7 @@ int main(int argc, char *argv[])
 	}
 	else if (ft_strncmp(argv[1], "pb", 2) == 0)
 	{
-		pb(&b_head, a_head);
+		pb(&b_head, &a_head);
 	}
 	printf("a b\n___\n");
 
