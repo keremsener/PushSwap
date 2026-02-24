@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:26:54 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 21:28:05 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/24 10:25:44 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ void	rra(t_list **a)
 	temp2 = temp->next;
 	temp->next = NULL;
 	ft_lstadd_front(a, temp2);
-
 }
