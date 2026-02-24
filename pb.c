@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:35:45 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 12:54:23 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/24 13:53:13 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	pb(t_list **b, t_list **a)
 {
 	t_list	*temp;
 	
-	temp = (*a)->next;
 	if (!b || !a)
 		return ;
+	temp = (*a)->next;
 	ft_lstadd_front(b, *a);
 	*a = temp;
 }

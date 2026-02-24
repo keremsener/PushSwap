@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 12:58:21 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/24 13:30:04 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int main(int argc, char *argv[])
 	j = 0;
 	a_head = NULL;
 	b_head = NULL;
+	int wlcount;
 
+	wlcount = 20;
 	while (i < argc)
 	{
 		if ((swp_strnstr(operation, argv[i], ft_strlen(operation))) == 1)
@@ -51,15 +53,25 @@ int main(int argc, char *argv[])
 	printf("a b\n___\n");
 
 	// Yazmak İçin Test Amaçlı kısım
-	while (a_head != NULL)
+	while (wlcount--)
 	{
-		printf("%s", (char *)a_head->content);
+		
+		if (a_head != NULL)
+		{
+			printf("%s", (char *)a_head->content);
+			// sleep(1);
+			a_head = a_head->next;
+		}
+		else
+			printf(" ");
 		if (b_head != NULL)
 		{
 			printf(" %s", (char *)b_head->content);
+			// sleep(1);
 			b_head = b_head->next;
 		}
-		a_head = a_head->next;
+		else
+			printf(" ");
 		printf("\n");
 	}
 	return (0);
