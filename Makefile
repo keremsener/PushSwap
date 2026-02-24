@@ -6,7 +6,7 @@
 #    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/02/24 10:38:55 by ksener           ###   ########.fr        #
+#    Updated: 2026/02/24 11:39:28 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC	=	sa.c \
 		rra.c \
 		rrb.c \
 		rrr.c \
-		controls.c
+		controls.c \
+		swp_strnstr.c
 
 OBJ	=	$(SRC:.c=.o)
 

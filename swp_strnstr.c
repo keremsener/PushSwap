@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   swp_strnstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 13:35:45 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 12:54:23 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/24 11:37:22 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/24 11:47:01 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb(t_list **b, t_list **a)
+int	swp_strnstr(const char *big, const char *little, size_t len)
 {
-	t_list	*temp;
-	
-	temp = (*a)->next;
-	if (!b || !a)
-		return ;
-	ft_lstadd_front(b, *a);
-	*a = temp;
+	size_t	i;
+	size_t	j;
+
+	if (little[0] == '\0')
+		return (0);
+	i = 0;
+	while (i < len && big[i] != '\0')
+	{
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len)
+		{
+			j++;
+			if (little[j] == '\0')
+			{
+				return (1);
+			}
+		}
+		i++;
+	}
+	return (0);
 }
