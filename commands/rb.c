@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 20:26:54 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 10:25:44 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/23 20:11:56 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/24 13:58:34 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
 
-void	rra(t_list **a)
+#include "../push_swap.h"
+
+void	rb(t_list **b)
 {
 	t_list	*temp;
-	t_list	*temp2;
 
-	if (!a || !(*a) || !(*a)->next)
+	if (!b || !(*b))
 		return ;
-	temp = *a;
-	while (temp->next->next != NULL)
-	{
-		temp = temp->next;
-	}
-	temp2 = temp->next;
+	temp = *b;
+	ft_lstadd_back(b, temp);
+	*b = (*b)->next;
 	temp->next = NULL;
-	ft_lstadd_front(a, temp2);
 }

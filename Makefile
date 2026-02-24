@@ -6,7 +6,7 @@
 #    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/02/24 11:39:28 by ksener           ###   ########.fr        #
+#    Updated: 2026/02/24 13:56:49 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,17 @@ NAME =	push_swap.a
 LIBFT_DIR	=	LibFT
 LIBFT		=	$(LIBFT_DIR)/libft.a
 
-SRC	=	sa.c \
-		sb.c \
-		ss.c \
-		pb.c \
-		pa.c \
-		ra.c \
-		rb.c \
-		rr.c \
-		rra.c \
-		rrb.c \
-		rrr.c \
+SRC	=	commands/sa.c \
+		commands/sb.c \
+		commands/ss.c \
+		commands/pb.c \
+		commands/pa.c \
+		commands/ra.c \
+		commands/rb.c \
+		commands/rr.c \
+		commands/rra.c \
+		commands/rrb.c \
+		commands/rrr.c \
 		controls.c \
 		swp_strnstr.c
 

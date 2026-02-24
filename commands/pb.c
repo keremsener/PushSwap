@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 19:44:18 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 13:53:27 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/23 13:35:45 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/24 13:58:34 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+void	pb(t_list **b, t_list **a)
 {
 	t_list	*temp;
 	
 	if (!b || !a)
 		return ;
-	temp = (*b)->next;
-	ft_lstadd_front(a, *b);
+	temp = (*a)->next;
+	ft_lstadd_front(b, *a);
 	*a = temp;
 }

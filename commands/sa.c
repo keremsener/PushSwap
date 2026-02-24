@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 20:23:35 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 20:24:37 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/23 11:45:21 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/24 13:58:34 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
+#include <stdio.h>
 
-void	rr(t_list **a, t_list **b)
+void	sa(t_list **a)
 {
-	ra(a);
-	rb(b);
+	t_list	*three;
+	t_list	*two;
+	if (!a || !(*a) || !(*a)->next)
+		return ;
+	three = (*a)->next->next;
+	(*a)->next->next = (*a);
+	two = (*a)->next;
+	(*a)->next = three;
+	*a = two;	
 }

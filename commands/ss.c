@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 11:45:21 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/23 16:14:00 by ksener           ###   ########.fr       */
+/*   Created: 2026/02/23 12:04:47 by ksener            #+#    #+#             */
+/*   Updated: 2026/02/24 13:58:34 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../push_swap.h"
 
-void	sa(t_list **a)
+void    ss(t_list **a, t_list **b)
 {
-	t_list	*three;
-	t_list	*two;
-	if (!a || !(*a) || !(*a)->next)
-		return ;
-	three = (*a)->next->next;
-	(*a)->next->next = (*a);
-	two = (*a)->next;
-	(*a)->next = three;
-	*a = two;	
+    sa(a);
+    sb(b);
 }
