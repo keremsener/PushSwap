@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 13:30:04 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/24 14:07:34 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int main(int argc, char *argv[])
 		if (a_head != NULL)
 		{
 			printf("%s", (char *)a_head->content);
-			// sleep(1);
 			a_head = a_head->next;
 		}
 		else
@@ -67,7 +66,6 @@ int main(int argc, char *argv[])
 		if (b_head != NULL)
 		{
 			printf(" %s", (char *)b_head->content);
-			// sleep(1);
 			b_head = b_head->next;
 		}
 		else
