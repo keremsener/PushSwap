@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:44:18 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 13:58:34 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/24 20:09:09 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pa(t_list **a, t_list **b)
 {
 	t_list	*temp;
-	
+
 	if (!b || !a)
 		return ;
 	temp = (*b)->next;
