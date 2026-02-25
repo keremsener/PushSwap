@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 14:07:34 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/25 11:03:06 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
 	int		cmcount;
 	char	*operation;
 	char	**commands = ft_calloc((argc - 1), sizeof(char *));
+	int		pbatoi[argc - 1];
+
 
 	operation = "pa pb ra rb rr rra rrb rrr sa sb ss";
 	i = 1;
@@ -40,16 +42,20 @@ int main(int argc, char *argv[])
 			cmcount++;
 		}
 		else
-			ft_lstadd_back(&a_head, ft_lstnew(ft_strdup(argv[i])));
+		{
+			pbatoi[i] = ft_atoi(argv[i]);
+			ft_lstadd_back(&a_head, ft_lstnew(&pbatoi[i]));
+		}
 		i++;
 	}
 	j = 0;
 
 	while (j < cmcount)
 	{
-		controls(commands[j], &a_head, &b_head);
+		//controls(commands[j], &a_head, &b_head);
 		j++;
 	}
+	bublesort(&a_head);
 	printf("a b\n___\n");
 
 	// Yazmak İçin Test Amaçlı kısım
@@ -58,14 +64,14 @@ int main(int argc, char *argv[])
 		
 		if (a_head != NULL)
 		{
-			printf("%s", (char *)a_head->content);
+			printf("%d", *(int *)a_head->content);
 			a_head = a_head->next;
 		}
 		else
 			printf(" ");
 		if (b_head != NULL)
 		{
-			printf(" %s", (char *)b_head->content);
+			printf(" %d", *(int *)b_head->content);
 			b_head = b_head->next;
 		}
 		else
