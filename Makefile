@@ -6,7 +6,7 @@
 #    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/02/25 11:00:22 by ksener           ###   ########.fr        #
+#    Updated: 2026/02/28 01:03:50 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ SRC	=	commands/sa.c \
 		commands/rrr.c \
 		controls.c \
 		swp_strnstr.c \
-		bublesort.c
+		bublesort.c \
+		instertionsort.c
+		
 
 OBJ	=	$(SRC:.c=.o)
 

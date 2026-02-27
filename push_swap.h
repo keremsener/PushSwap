@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/25 11:00:35 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/28 02:24:45 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void    rrr(t_list **a, t_list **b);
 void    controls(char *operation, t_list **a_head, t_list **b_head);
 int     swp_strnstr(const char *big, const char *little, size_t len);
 void	bublesort(t_list **a_head);
+void	insertion_sort(t_list **a_head, t_list **b_head);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:45:21 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 20:11:28 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/25 13:30:44 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	sa(t_list **a)
 	two = (*a)->next;
 	(*a)->next = three;
 	*a = two;
+	printf("\nsa");
 }

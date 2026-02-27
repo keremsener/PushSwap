@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/25 11:03:06 by ksener           ###   ########.fr       */
+/*   Updated: 2026/02/28 02:26:05 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,28 +55,28 @@ int main(int argc, char *argv[])
 		//controls(commands[j], &a_head, &b_head);
 		j++;
 	}
-	bublesort(&a_head);
-	printf("a b\n___\n");
+	insertion_sort(&a_head, &b_head);
+	// printf("a b\n___\n");
 
 	// Yazmak İçin Test Amaçlı kısım
-	while (wlcount--)
-	{
+	// while (wlcount--)
+	// {
 		
-		if (a_head != NULL)
-		{
-			printf("%d", *(int *)a_head->content);
-			a_head = a_head->next;
-		}
-		else
-			printf(" ");
-		if (b_head != NULL)
-		{
-			printf(" %d", *(int *)b_head->content);
-			b_head = b_head->next;
-		}
-		else
-			printf(" ");
-		printf("\n");
-	}
+	// 	if (a_head != NULL)
+	// 	{
+	// 		printf("%d", *(int *)a_head->content);
+	// 		a_head = a_head->next;
+	// 	}
+	// 	else
+	// 		printf(" ");
+	// 	if (b_head != NULL)
+	// 	{
+	// 		printf(" %d", *(int *)b_head->content);
+	// 		b_head = b_head->next;
+	// 	}
+	// 	else
+	// 		printf(" ");
+	// 	printf("\n");
+	// }
 	return (0);
 }
