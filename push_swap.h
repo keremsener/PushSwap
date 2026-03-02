@@ -31,4 +31,5 @@ void    controls(char *operation, t_list **a_head, t_list **b_head);
 int     swp_strnstr(const char *big, const char *little, size_t len);
 void	bublesort(t_list **a_head);
 void	insertion_sort(t_list **a_head, t_list **b_head);
+void	test_print(t_list *a_head, t_list *b_head);
 #endif

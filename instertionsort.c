@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:53:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/28 02:55:14 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/02 14:48:45 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,31 @@
 
 void	insertion_sort(t_list **a_head, t_list **b_head)
 {
-	t_list	**temp;
-
-	int	size;
-
-	size = ft_lstsize(*a_head);
-	temp = a_head;
-	while (size > 4)
+	int	b_size = 0;
+	
+	if (*(int *)(*a_head)->content < *(int *)(*a_head)->next->content)
+		sa(a_head);
+	pb(b_head, a_head);	
+	while (*a_head)
 	{
-		size = ft_lstsize(*a_head);
-		pb(b_head, a_head);
-		printf("\nB head: %d", *(int *)(*b_head)->content);
-	}
-	bublesort(a_head);
-	while (*b_head != NULL)
-	{
-		while (*(int *)(*b_head)->content > *(int *)(*temp)->content)
+		b_size = ft_lstsize(*b_head);
+		while (*b_head)
 		{
-			printf("%d\n",*(int *)(*temp)->content);
-			ra(temp);
+			if ((*(int *)(*a_head)->content > *(int *)(*b_head)->content) ||
+				b_size <= 0)
+			{
+				pb(b_head, a_head);
+				while (1 + b_size--)
+					rb(b_head);
+				break ;
+			}
+			else
+			{
+				rb(b_head);
+				b_size--;
+			}
 		}
-		pa(temp, b_head);
 	}
+	while (*b_head)
+		pa(a_head, b_head);
 }
