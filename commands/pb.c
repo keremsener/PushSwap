@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:35:45 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 20:09:21 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/02 14:42:22 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	pb(t_list **b, t_list **a)
 	temp = (*a)->next;
 	ft_lstadd_front(b, *a);
 	*a = temp;
+	printf("\npb");
 }
