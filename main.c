@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/03 10:33:22 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/03 17:22:19 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	test_print(t_list *a_head, t_list *b_head)
 	printf("\n\na b\n___\n");
 	while (wlcount--)
 	{
-		
+
 		if (a_head != NULL)
 		{
 			printf("%d", *(int *)a_head->content);
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	t_list	*b_head;
 	int     i;
 	int		j;
-	int		cmcount;
+	int		cmcount = 0;
 	char	*operation;
 	char	**commands = ft_calloc((argc - 1), sizeof(char *));
 	int		pbatoi[argc - 1];

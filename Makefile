@@ -3,17 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/02/28 01:03:50 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/03 17:22:20 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	push_swap.a
+NAME =	push_swap
 
-LIBFT_DIR	=	LibFT
+LIBFT_DIR	=	libft
 LIBFT		=	$(LIBFT_DIR)/libft.a
+
+INCLUDES	=	-I . -I $(LIBFT_DIR)
 
 SRC	=	commands/sa.c \
 		commands/sb.c \
@@ -29,22 +31,21 @@ SRC	=	commands/sa.c \
 		controls.c \
 		swp_strnstr.c \
 		bublesort.c \
-		instertionsort.c
-		
+		instertionsort.c \
+		main.c
 
 OBJ	=	$(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): ${LIBFT} $(OBJ)
-	cp $(LIBFT) $(NAME)
-	ar rcs $(NAME) $(OBJ)
-	
+$(NAME): $(OBJ) ${LIBFT}
+	cc -Wall -Werror -Wextra $(INCLUDES) $^ -o $@
+
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-%.o: %.c libft.h
-	cc -Wall -Werror -Wextra -c $< -o $@
+%.o: %.c
+	cc -Wall -Werror -Wextra $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
