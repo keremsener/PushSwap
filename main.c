@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/02 14:49:29 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/03 10:33:22 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int main(int argc, char *argv[])
 		//controls(commands[j], &a_head, &b_head);
 		j++;
 	}
-	bublesort(&a_head);
-	//insertion_sort(&a_head, &b_head);
-	// test_print(a_head, b_head);
+	//bublesort(&a_head);
+	insertion_sort(&a_head, &b_head);
+	test_print(a_head, b_head);
 	return (0);
 }
