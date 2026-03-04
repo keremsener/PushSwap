@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/03 17:22:21 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/04 12:52:29 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <unistd.h>
 # include "libft.h"
 # include <stdio.h>
+# include <unistd.h>
 
 void	sa(t_list **a);
 void	sb(t_list **b);
@@ -26,9 +26,9 @@ void	rb(t_list **b);
 void	rr(t_list **a, t_list **b);
 void	rra(t_list **a);
 void	rrb(t_list **b);
-void    rrr(t_list **a, t_list **b);
-void    controls(char *operation, t_list **a_head, t_list **b_head);
-int     swp_strnstr(const char *big, const char *little, size_t len);
+void	rrr(t_list **a, t_list **b);
+void	controls(char *operation, t_list **a_head, t_list **b_head);
+int		swp_strnstr(const char *big, const char *little, size_t len);
 void	bublesort(t_list **a_head);
 void	insertion_sort(t_list **a_head, t_list **b_head);
 void	test_print(t_list *a_head, t_list *b_head);
