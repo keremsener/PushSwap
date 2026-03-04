@@ -6,14 +6,14 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/04 12:42:24 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/04 13:07:36 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-static void	test_print(t_list *a_head, t_list *b_head)
+void	test_print(t_list *a_head, t_list *b_head)
 {
 	int	wlcount;
 
