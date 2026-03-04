@@ -6,14 +6,14 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:53:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/04 12:35:56 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/04 12:42:05 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int	get_max_value(t_list *list)
+static int	get_max_value(t_list *list)
 {
 	int	result;
 
@@ -29,7 +29,7 @@ int	get_max_value(t_list *list)
 	return (result);
 }
 
-void	forwhile(t_list **a_head, t_list **b_head, int b_size, int max_val)
+static void	forwhile(t_list **a_head, t_list **b_head, int b_size, int max_val)
 {
 	while (*a_head)
 	{
