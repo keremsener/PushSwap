@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
+#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/05 12:29:52 by adede            ###   ########.fr        #
+#    Updated: 2026/03/05 13:04:02 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,10 @@ SRC_COMMANDS	=	sa.c \
 
 SRC_SORTS		=	simple/bublesort.c \
 					simple/instertionsort.c \
+					simple/selectionsort.c \
 
-SRC_UTILS		=	printnode.c
+SRC_UTILS		=	printnode.c \
+					get_value.c
 
 SRCS			=	$(addprefix src/,$(SRC)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \

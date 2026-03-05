@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:30:20 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/05 13:55:41 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ void	rrr(t_list **a, t_list **b);
 
 void	bublesort(t_list **a_head);
 void	insertion_sort(t_list **a_head, t_list **b_head);
+void	selectionsort(t_list **a_head, t_list **b_head);
 
 //	Utilities
 
 void	test_print(t_list *a_head, t_list *b_head);
 void	printnode(t_list *list);
-
+int		get_max_value(t_list *list);
+int		get_min_value(t_list *list);
 #endif

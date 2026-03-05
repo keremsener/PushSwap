@@ -6,27 +6,11 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:53:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:02:44 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:42:33 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	get_max_value(t_list *list)
-{
-	int	result;
-
-	if (!list)
-		return (0);
-	result = *(int *)list->content;
-	while (list != NULL)
-	{
-		if (*(int *)list->content > result)
-			result = *(int *)list->content;
-		list = list->next;
-	}
-	return (result);
-}
 
 static void	forwhile(t_list **a_head, t_list **b_head, int b_size, int max_val)
 {

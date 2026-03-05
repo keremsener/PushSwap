@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:27:35 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/05 12:57:13 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int	main(int argc, char *argv[])
 	b_head = NULL;
 	split_args(argc, argv, &a_head);
 	insertion_sort(&a_head, &b_head);
-	test_print(a_head, b_head);
+	//bublesort(&a_head);
+	// test_print(a_head, b_head);
+	selectionsort(&a_head, &b_head);
 	return (0);
 }
