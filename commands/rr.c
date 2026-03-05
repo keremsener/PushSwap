@@ -6,11 +6,11 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:23:35 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 20:09:47 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:11:39 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	rr(t_list **a, t_list **b)
 {
