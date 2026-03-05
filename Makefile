@@ -6,7 +6,7 @@
 #    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/05 10:30:29 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/05 11:20:22 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ SRC	=	commands/sa.c \
 		commands/rra.c \
 		commands/rrb.c \
 		commands/rrr.c \
-		controls.c \
 		sorts/simple/bublesort.c \
 		sorts/simple/instertionsort.c \
 		main.c \
