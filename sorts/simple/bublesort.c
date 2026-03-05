@@ -6,12 +6,11 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 10:46:09 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/25 13:23:48 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:02:47 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	bublesort(t_list **a_head)
 {

@@ -6,12 +6,11 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:53:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/04 12:42:05 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:02:44 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int	get_max_value(t_list *list)
 {

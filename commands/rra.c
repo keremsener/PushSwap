@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:26:54 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/02 14:44:04 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:01:37 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	rra(t_list **a)
 	temp2 = temp->next;
 	temp->next = NULL;
 	ft_lstadd_front(a, temp2);
-	printf("\nrra");
+	ft_printf("\nrra");
 }

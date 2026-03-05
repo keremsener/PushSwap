@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:11:56 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/04 12:52:11 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:01:37 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	rb(t_list **b)
 	ft_lstadd_back(b, temp);
 	*b = (*b)->next;
 	temp->next = NULL;
-	printf("\nrb");
+	ft_printf("\nrb");
 }

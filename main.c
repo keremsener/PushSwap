@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/04 13:07:36 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:01:37 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@ void	test_print(t_list *a_head, t_list *b_head)
 	int	wlcount;
 
 	wlcount = 8;
-	printf("\n\na b\n___\n");
+	ft_printf("\n\na b\n___\n");
 	while (wlcount--)
 	{
 		if (a_head != NULL)
 		{
-			printf("%d", *(int *)a_head->content);
+			ft_printf("%d", *(int *)a_head->content);
 			a_head = a_head->next;
 		}
 		else
-			printf(" ");
+			ft_printf(" ");
 		if (b_head != NULL)
 		{
-			printf(" %d", *(int *)b_head->content);
+			ft_printf(" %d", *(int *)b_head->content);
 			b_head = b_head->next;
 		}
 		else
-			printf(" ");
-		printf("\n");
+			ft_printf(" ");
+		ft_printf("\n");
 	}
 }
 

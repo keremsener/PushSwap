@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:44:18 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/02 14:42:16 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:06:57 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	pa(t_list **a, t_list **b)
 	temp = (*b)->next;
 	ft_lstadd_front(a, *b);
 	*b = temp;
-	printf("\npa");
+	ft_printf("\npa");
 }

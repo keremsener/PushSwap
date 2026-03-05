@@ -6,12 +6,11 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 10:30:23 by ksener            #+#    #+#             */
-/*   Updated: 2026/02/24 20:13:32 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:02:37 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	controls(char *operation, t_list **a_head, t_list **b_head)
 {

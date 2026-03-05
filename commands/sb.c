@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:04:03 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/02 14:44:45 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:01:37 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	sb(t_list **b)
 	two = (*b)->next;
 	(*b)->next = three;
 	*b = two;
-	printf("\nsb");
+	ft_printf("\nsb");
 }

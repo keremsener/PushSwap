@@ -6,14 +6,13 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 10:32:07 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/05 11:02:40 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft.h"
-# include <stdio.h>
 # include <unistd.h>
 
 void	sa(t_list **a);
