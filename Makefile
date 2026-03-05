@@ -3,41 +3,47 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/05 11:20:22 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/05 11:55:58 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	push_swap
+NAME 			=	push_swap
 
-LIBFT_DIR	=	libft
-LIBFT		=	$(LIBFT_DIR)/libft.a
+LIBFT_DIR		=	libft
+LIBFT			=	$(LIBFT_DIR)/libft.a
 
-INCLUDES	=	-I . -I $(LIBFT_DIR)
+INCLUDES		=	-I . -I $(LIBFT_DIR)
 
-SRC	=	commands/sa.c \
-		commands/sb.c \
-		commands/ss.c \
-		commands/pb.c \
-		commands/pa.c \
-		commands/ra.c \
-		commands/rb.c \
-		commands/rr.c \
-		commands/rra.c \
-		commands/rrb.c \
-		commands/rrr.c \
-		sorts/simple/bublesort.c \
-		sorts/simple/instertionsort.c \
-		main.c \
-		utils/printnode.c
+SRC				=	main.c \
+					utils/printnode.c
 
-OBJ	=	$(SRC:.c=.o)
+SRC_COMMANDS	=	commands/sa.c \
+					commands/sb.c \
+					commands/ss.c \
+					commands/pb.c \
+					commands/pa.c \
+					commands/ra.c \
+					commands/rb.c \
+					commands/rr.c \
+					commands/rra.c \
+					commands/rrb.c \
+					commands/rrr.c
+
+SRC_SORTS		=	sorts/simple/bublesort.c \
+					sorts/simple/instertionsort.c \
+
+SRCS			=	$(addprefix src/,$(SRC)) \
+					$(addprefix src/,$(SRC_COMMANDS)) \
+					$(addprefix src/,$(SRC_SORTS))
+
+OBJS			=	$(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) ${LIBFT}
+$(NAME): $(OBJS) ${LIBFT}
 	cc -Wall -Werror -Wextra $(INCLUDES) $^ -o $@
 
 $(LIBFT):
@@ -47,7 +53,7 @@ $(LIBFT):
 	cc -Wall -Werror -Wextra $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
