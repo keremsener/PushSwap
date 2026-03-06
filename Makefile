@@ -3,12 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/05 13:04:02 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/06 11:30:32 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# =========================================
+# ANSI Escape Sequences
+# =========================================
+
+# Basic
+ESC				:=	\033
+RESET			:=	$(ESC)[0m
+
+# Colors
+GREEN			:=	$(ESC)[0;32m
+YELLOW			:=	$(ESC)[0;33m
+RED				:=	$(ESC)[0;31m
+BLUE			:=	$(ESC)[0;34m
+
+# Text Styles
+BOLD			:=	$(ESC)[1m
+DIM				:=	$(ESC)[2m
+INVERSE			:=	$(ESC)[7m
+
 
 NAME 			=	push_swap
 
@@ -47,22 +67,30 @@ OBJS			=	$(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) ${LIBFT}
-	cc -Wall -Werror -Wextra $(INCLUDES) $^ -o $@
+$(NAME): ${LIBFT} $(OBJS)
+	@printf "$(GREEN)$(BOLD)[$(NAME)]$(RESET)"
+	@printf "$(GREEN) Linking$(RESET)\n"
+	@cc -Wall -Werror -Wextra $(INCLUDES) $(OBJS) $(LIBFT) -o $@
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	@printf "$(BLUE)$(BOLD)[$(LIBFT_DIR)]$(RESET)"
+	@printf "$(BLUE) Creating library$(RESET)\n"
+	@$(MAKE) -s -C $(LIBFT_DIR)
 
 %.o: %.c
-	cc -Wall -Werror -Wextra $(INCLUDES) -c $< -o $@
+	@printf "$(DIM)$(BOLD)[$(NAME)]$(RESET)"
+	@printf "$(DIM) Compiling $<$(RESET)\n"
+	@cc -Wall -Werror -Wextra $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
-	make -C $(LIBFT_DIR) clean
+	@printf "$(YELLOW)Cleaning objects$(RESET)\n"
+	@rm -f $(OBJS)
+	@$(MAKE) -s -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
+	@printf "$(RED)Cleaning all$(RESET)\n"
+	@rm -f $(NAME)
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
