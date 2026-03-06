@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 12:57:13 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/06 15:38:36 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	test_print(t_list *a_head, t_list *b_head)
 {
 	int	wlcount;
 
-	wlcount = 8;
+	wlcount = 20;
 	ft_printf("\n\na b\n___\n");
 	while (wlcount--)
 	{
@@ -74,10 +74,11 @@ int	main(int argc, char *argv[])
 		return (0);
 	a_head = NULL;
 	b_head = NULL;
-	split_args(argc, argv, &a_head);
-	insertion_sort(&a_head, &b_head);
-	//bublesort(&a_head);
+	split_args(argc, argv, &a_head); 
+//	insertion_sort(&a_head, &b_head); //100: 5176, 500: 125829:
+	//bublesort(&a_head);  //100: 12625, 500: 313343:
+//	selectionsort(&a_head, &b_head); //100: 2635, 500: 63366:
+	chunksort(&a_head, &b_head);
 	// test_print(a_head, b_head);
-	selectionsort(&a_head, &b_head);
 	return (0);
 }

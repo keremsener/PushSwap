@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 13:55:41 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/06 15:38:07 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	rrr(t_list **a, t_list **b);
 void	bublesort(t_list **a_head);
 void	insertion_sort(t_list **a_head, t_list **b_head);
 void	selectionsort(t_list **a_head, t_list **b_head);
+void	selection_n_sort(t_list **a_head, t_list **b_head, int len);
+
+// Medium
+
+void	chunksort(t_list  **a_head, t_list **b_head);
 
 //	Utilities
 
