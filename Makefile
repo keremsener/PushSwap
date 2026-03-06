@@ -6,7 +6,7 @@
 #    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/06 11:30:32 by adede            ###   ########.fr        #
+#    Updated: 2026/03/06 15:17:18 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,15 @@ BOLD			:=	$(ESC)[1m
 DIM				:=	$(ESC)[2m
 INVERSE			:=	$(ESC)[7m
 
+# =========================================
+# Sample testing
+# =========================================
+
+AMOUNT			=	100
+
+# =========================================
+# Compilation
+# =========================================
 
 NAME 			=	push_swap
 
@@ -94,4 +103,11 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+samples/%.txt:
+	@shuf -i 0-9999 -n $(AMOUNT) > $@;
+
+test: samples/$(AMOUNT).txt
+	@$(MAKE) -s > /dev/null
+	@./$(NAME) $$(cat $<)
+
+.PHONY: all clean fclean re test

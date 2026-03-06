@@ -4,3 +4,6 @@
 *.a
 .bonus
 push_swap
+samples/*
+!samples/100.txt
+!samples/500.txt
