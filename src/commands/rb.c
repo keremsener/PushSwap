@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:11:56 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:11:20 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/07 21:19:29 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	rb(t_list **b)
 	ft_lstadd_back(b, temp);
 	*b = (*b)->next;
 	temp->next = NULL;
-	ft_printf("\nrb");
+	ft_printf("rb\n");
 }

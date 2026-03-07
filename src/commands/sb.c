@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:04:03 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:11:48 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/07 21:19:53 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	sb(t_list **b)
 	two = (*b)->next;
 	(*b)->next = three;
 	*b = two;
-	ft_printf("\nsb");
+	ft_printf("sb\n");
 }

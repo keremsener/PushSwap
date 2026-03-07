@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:35:45 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:11:12 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/07 21:19:18 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	pb(t_list **b, t_list **a)
 	temp = (*a)->next;
 	ft_lstadd_front(b, *a);
 	*a = temp;
-	ft_printf("\npb");
+	ft_printf("pb\n");
 }

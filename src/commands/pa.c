@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 19:44:18 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:11:08 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/07 21:19:13 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	pa(t_list **a, t_list **b)
 	temp = (*b)->next;
 	ft_lstadd_front(a, *b);
 	*b = temp;
-	ft_printf("\npa");
+	ft_printf("pa\n");
 }
