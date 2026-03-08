@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/06 15:36:29 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/09 01:01:37 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ INVERSE			:=	$(ESC)[7m
 # Sample testing
 # =========================================
 
+STRATEGY		=	adaptive
 AMOUNT			=	100
 
 # =========================================
@@ -109,6 +110,6 @@ samples/%.txt:
 
 test: samples/$(AMOUNT).txt
 	@$(MAKE) -s > /dev/null
-	@./$(NAME) $$(cat $<)
+	@./$(NAME) --$(STRATEGY) $$(cat $<)
 
 .PHONY: all clean fclean re test
