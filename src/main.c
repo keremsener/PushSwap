@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/06 15:38:36 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/09 02:29:30 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	test_print(t_list *a_head, t_list *b_head)
 	}
 }
 
-static void	split_args(int argc, char *argv[], t_list **a_head)
+static void	split_args(int argc, const char *argv[], t_list **a_head)
 {
 	int		i;
 	int		j;
@@ -65,20 +65,58 @@ static void	split_args(int argc, char *argv[], t_list **a_head)
 	}
 }
 
-int	main(int argc, char *argv[])
+static t_config	parse_option(const char *argument)
 {
-	t_list	*a_head;
-	t_list	*b_head;
+	t_config	config;
+	size_t		length;
+	
+	ft_bzero(&config, sizeof(t_config));
+	length = ft_strlen(argument);
+	if (!ft_strncmp(argument, "--simple", length))
+		config.strategy = SIMPLE;
+	else if (!ft_strncmp(argument, "--medium", length))
+		config.strategy = MEDIUM;
+	else if (!ft_strncmp(argument, "--complex", length))
+		config.strategy = COMPLEX;
+	else if (!ft_strncmp(argument, "--adaptive", length))
+		config.strategy = ADAPTIVE;
+	else if (!ft_strncmp(argument, "--bench", length))
+		config.bench_mode = true;
+	// else
+	// 	error();
+	return (config);
+}
+
+int	main(int argc, const char *argv[])
+{
+	t_list		*a_head;
+	t_list		*b_head;
+	t_metrics	metrics;
+	int			argi;
 
 	if (argc < 2)
 		return (0);
 	a_head = NULL;
 	b_head = NULL;
-	split_args(argc, argv, &a_head); 
-//	insertion_sort(&a_head, &b_head); //100: 5176, 500: 125829:
-	//bublesort(&a_head);  //100: 12625, 500: 313343:
-//	selectionsort(&a_head, &b_head); //100: 2635, 500: 63366:
-	chunksort(&a_head, &b_head);
+	ft_bzero(&metrics, sizeof(t_metrics));
+	argi = 1;
+	while (argi < argc && !ft_strncmp(argv[argi], "--", 2))
+		metrics.config = parse_option(argv[argi++]);
+	split_args(argc - argi, argv + argi, &a_head);
+	if (metrics.config.strategy == ADAPTIVE)
+		selectionsort(&a_head, &b_head);
+	if (metrics.config.strategy == SIMPLE)
+	{
+		// insertion_sort(&a_head, &b_head); // 100: 5176, 500: 125829
+		bublesort(&a_head); // 100: 12625, 500: 313343
+		// selectionsort(&a_head, &b_head); // 100: 2635, 500: 63366
+	}
+	if (metrics.config.strategy == MEDIUM)
+		chunksort(&a_head, &b_head);
+	if (metrics.config.strategy == COMPLEX)
+		ft_printf("complex\n");
+	if (metrics.config.bench_mode)
+		ft_printf("bench\n");
 	// test_print(a_head, b_head);
 	return (0);
 }
