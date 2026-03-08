@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 02:29:30 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/09 02:50:10 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,24 @@ static t_config	parse_option(const char *argument)
 	return (config);
 }
 
+static void	sort(t_list **a_head, t_list **b_head, t_metrics metrics)
+{
+	if (metrics.config.strategy == ADAPTIVE)
+		selectionsort(a_head, b_head);
+	if (metrics.config.strategy == SIMPLE)
+	{
+		// insertion_sort(a_head, b_head); // 100: 5176, 500: 125829
+		bublesort(a_head); // 100: 12625, 500: 313343
+		// selectionsort(a_head, b_head); // 100: 2635, 500: 63366
+	}
+	if (metrics.config.strategy == MEDIUM)
+		chunksort(a_head, b_head);
+	if (metrics.config.strategy == COMPLEX)
+		ft_printf("complex\n");
+	if (metrics.config.bench_mode)
+		ft_printf("bench\n");
+}
+
 int	main(int argc, const char *argv[])
 {
 	t_list		*a_head;
@@ -103,20 +121,7 @@ int	main(int argc, const char *argv[])
 	while (argi < argc && !ft_strncmp(argv[argi], "--", 2))
 		metrics.config = parse_option(argv[argi++]);
 	split_args(argc - argi, argv + argi, &a_head);
-	if (metrics.config.strategy == ADAPTIVE)
-		selectionsort(&a_head, &b_head);
-	if (metrics.config.strategy == SIMPLE)
-	{
-		// insertion_sort(&a_head, &b_head); // 100: 5176, 500: 125829
-		bublesort(&a_head); // 100: 12625, 500: 313343
-		// selectionsort(&a_head, &b_head); // 100: 2635, 500: 63366
-	}
-	if (metrics.config.strategy == MEDIUM)
-		chunksort(&a_head, &b_head);
-	if (metrics.config.strategy == COMPLEX)
-		ft_printf("complex\n");
-	if (metrics.config.bench_mode)
-		ft_printf("bench\n");
+	sort(&a_head, &b_head, metrics);
 	// test_print(a_head, b_head);
 	return (0);
 }
