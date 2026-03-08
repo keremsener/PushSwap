@@ -3,16 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/06 15:38:07 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/09 02:29:18 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft.h"
+# include <stdbool.h>
+
+typedef enum e_strategy {
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+} t_strategy;
+
+typedef struct s_config {
+	t_strategy			strategy;
+	bool				bench_mode;
+} t_config;
+
+typedef struct s_operation_count {
+	size_t	sa;
+	size_t	sb;
+	size_t	ss;
+	size_t	pa;
+	size_t	pb;
+	size_t	ra;
+	size_t	rb;
+	size_t	rr;
+	size_t	rra;
+	size_t	rrb;
+	size_t	rrr;
+} t_operation_count;
+
+typedef struct s_metrics
+{
+	double				disorder;
+	t_config			config;
+	t_operation_count	ops;
+} t_metrics;
 
 //	Commands
 
