@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 02:50:10 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/09 03:04:29 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,16 @@ void	test_print(t_list *a_head, t_list *b_head)
 	}
 }
 
-static void	split_args(int argc, const char *argv[], t_list **a_head)
+static t_list	*split_args(int argc, const char *argv[])
 {
+	t_list	*list;
 	int		i;
 	int		j;
 	int		*val;
 	char	**split_args;
 
-	i = 1;
+	list = NULL;
+	i = 0;
 	while (i < argc)
 	{
 		split_args = ft_split(argv[i], ' ');
@@ -54,15 +56,16 @@ static void	split_args(int argc, const char *argv[], t_list **a_head)
 		{
 			val = (int *)malloc(sizeof(int));
 			if (!val)
-				return ;
+				return (NULL);
 			*val = ft_atoi(split_args[j]);
-			ft_lstadd_back(&(*a_head), ft_lstnew(val));
+			ft_lstadd_back(&list, ft_lstnew(val));
 			free(split_args[j]);
 			j++;
 		}
 		free(split_args);
 		i++;
 	}
+	return (list);
 }
 
 static t_config	parse_option(const char *argument)
@@ -120,7 +123,7 @@ int	main(int argc, const char *argv[])
 	argi = 1;
 	while (argi < argc && !ft_strncmp(argv[argi], "--", 2))
 		metrics.config = parse_option(argv[argi++]);
-	split_args(argc - argi, argv + argi, &a_head);
+	a_head = split_args(argc - argi, argv + argi);
 	sort(&a_head, &b_head, metrics);
 	// test_print(a_head, b_head);
 	return (0);
