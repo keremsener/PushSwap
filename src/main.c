@@ -6,37 +6,11 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 03:37:28 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/09 04:14:07 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	test_print(t_list *a_head, t_list *b_head)
-{
-	int	wlcount;
-
-	wlcount = 20;
-	ft_printf("\n\na b\n___\n");
-	while (wlcount--)
-	{
-		if (a_head != NULL)
-		{
-			ft_printf("%d", *(int *)a_head->content);
-			a_head = a_head->next;
-		}
-		else
-			ft_printf(" ");
-		if (b_head != NULL)
-		{
-			ft_printf(" %d", *(int *)b_head->content);
-			b_head = b_head->next;
-		}
-		else
-			ft_printf(" ");
-		ft_printf("\n");
-	}
-}
 
 static t_list	*split_args(int argc, const char *argv[])
 {
@@ -125,6 +99,6 @@ int	main(int argc, const char *argv[])
 		metrics.config = parse_option(argv[argi++]);
 	a_head = split_args(argc - argi, argv + argi);
 	sort(&a_head, &b_head, metrics);
-	// test_print(a_head, b_head);
+	// print_stack(a_head, b_head);
 	return (0);
 }

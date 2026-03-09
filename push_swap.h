@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 03:36:12 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/09 03:46:07 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ void	chunk_sort(t_list  **a_head, t_list **b_head);
 
 //	Utilities
 
-void	test_print(t_list *a_head, t_list *b_head);
-void	printnode(t_list *list);
+void	print_stack(t_list *a_head, t_list *b_head);
 int		get_max_value(t_list *list);
 int		get_min_value(t_list *list);
 #endif
