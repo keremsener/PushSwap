@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   selectionsort.c                                    :+:      :+:    :+:   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:27:06 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 14:33:02 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/09 03:36:50 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	selectionsort(t_list **a_head, t_list **b_head)
+void	selection_sort(t_list **a_head, t_list **b_head)
 {
 	int	min_val;
 

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bublesort.c                                        :+:      :+:    :+:   */
+/*   buble_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 10:46:09 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:02:47 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/09 03:34:41 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bublesort(t_list **a_head)
+void	buble_sort(t_list **a_head)
 {
 	int	size;
 	int	i;

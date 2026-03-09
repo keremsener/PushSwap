@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunksort.c                                        :+:      :+:    :+:   */
+/*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 11:13:30 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/06 15:07:15 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/09 03:37:41 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	calc_chunk_size(int total_numbers)
 		return (total_numbers / 11);	
 }
 
-void	chunksort(t_list  **a_head, t_list **b_head)
+void	chunk_sort(t_list  **a_head, t_list **b_head)
 {
 	int	chunk_size;
 
@@ -31,7 +31,7 @@ void	chunksort(t_list  **a_head, t_list **b_head)
 	chunk_size = calc_chunk_size(ft_lstsize(*a_head));
 	if(chunk_size <= 10)
 	{
-		selectionsort(a_head, b_head);
+		selection_sort(a_head, b_head);
 		return ;
 	}
 	while (chunk_size != 0)
@@ -40,6 +40,6 @@ void	chunksort(t_list  **a_head, t_list **b_head)
 		chunk_size--;
 	}
 	t_list	*temp = NULL;
-	selectionsort(b_head, &temp);
-	//bublesort(b_head);
+	selection_sort(b_head, &temp);
+	//buble_sort(b_head);
 }

@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 03:04:29 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/09 03:37:28 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,15 @@ static t_config	parse_option(const char *argument)
 static void	sort(t_list **a_head, t_list **b_head, t_metrics metrics)
 {
 	if (metrics.config.strategy == ADAPTIVE)
-		selectionsort(a_head, b_head);
+		selection_sort(a_head, b_head);
 	if (metrics.config.strategy == SIMPLE)
 	{
 		// insertion_sort(a_head, b_head); // 100: 5176, 500: 125829
-		bublesort(a_head); // 100: 12625, 500: 313343
-		// selectionsort(a_head, b_head); // 100: 2635, 500: 63366
+		buble_sort(a_head); // 100: 12625, 500: 313343
+		// selection_sort(a_head, b_head); // 100: 2635, 500: 63366
 	}
 	if (metrics.config.strategy == MEDIUM)
-		chunksort(a_head, b_head);
+		chunk_sort(a_head, b_head);
 	if (metrics.config.strategy == COMPLEX)
 		ft_printf("complex\n");
 	if (metrics.config.bench_mode)

@@ -6,7 +6,7 @@
 #    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/09 01:01:37 by adede            ###   ########.fr        #
+#    Updated: 2026/03/09 03:35:49 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,10 +61,10 @@ SRC_COMMANDS	=	sa.c \
 					rrb.c \
 					rrr.c
 
-SRC_SORTS		=	simple/bublesort.c \
-					simple/instertionsort.c \
-					simple/selectionsort.c \
-					medium/chunksort.c
+SRC_SORTS		=	simple/buble_sort.c \
+					simple/instertion_sort.c \
+					simple/selection_sort.c \
+					medium/chunk_sort.c
 
 SRC_UTILS		=	printnode.c \
 					get_value.c
