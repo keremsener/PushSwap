@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 04:14:07 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/09 05:55:34 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,19 @@ static t_config	parse_option(const char *argument)
 static void	sort(t_list **a_head, t_list **b_head, t_metrics metrics)
 {
 	if (metrics.config.strategy == ADAPTIVE)
-		selection_sort(a_head, b_head);
+	{
+		if (metrics.disorder < 20)
+			selection_sort(a_head, b_head);
+		else if (metrics.disorder < 50)
+			chunk_sort(a_head, b_head);
+		else
+			ft_printf("complex-adaptive\n");
+	}
 	if (metrics.config.strategy == SIMPLE)
 	{
 		// insertion_sort(a_head, b_head); // 100: 5176, 500: 125829
-		buble_sort(a_head); // 100: 12625, 500: 313343
-		// selection_sort(a_head, b_head); // 100: 2635, 500: 63366
+		// buble_sort(a_head); // 100: 12625, 500: 313343
+		selection_sort(a_head, b_head); // 100: 2635, 500: 63366
 	}
 	if (metrics.config.strategy == MEDIUM)
 		chunk_sort(a_head, b_head);
@@ -98,6 +105,7 @@ int	main(int argc, const char *argv[])
 	while (argi < argc && !ft_strncmp(argv[argi], "--", 2))
 		metrics.config = parse_option(argv[argi++]);
 	a_head = split_args(argc - argi, argv + argi);
+	metrics.disorder = compute_disorder(a_head);
 	sort(&a_head, &b_head, metrics);
 	// print_stack(a_head, b_head);
 	return (0);
