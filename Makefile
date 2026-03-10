@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
+#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/09 04:44:42 by adede            ###   ########.fr        #
+#    Updated: 2026/03/10 12:22:42 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,8 @@ SRC_SORTS		=	simple/buble_sort.c \
 
 SRC_UTILS		=	print_stack.c \
 					get_value.c \
-					compute_disorder.c
+					compute_disorder.c \
+					get_int.c
 
 SRCS			=	$(addprefix src/,$(SRC)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \

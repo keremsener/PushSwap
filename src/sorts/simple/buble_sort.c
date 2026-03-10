@@ -27,7 +27,7 @@ void	buble_sort(t_list **a_head)
 		j = 0;
 		while (j < size - 1)
 		{
-			if (*(int *)(*a_head)->content > *(int *)(*a_head)->next->content)
+			if (get_int(a_head) > *(int *)(*a_head)->next->content)
 				sa(a_head);
 			ra(a_head);
 			j++;

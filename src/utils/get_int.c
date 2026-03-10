@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   selection_sort.c                                   :+:      :+:    :+:   */
+/*   get_int.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/05 11:27:06 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/10 12:28:03 by ksener           ###   ########.fr       */
+/*   Created: 2026/03/10 12:19:40 by ksener            #+#    #+#             */
+/*   Updated: 2026/03/10 12:21:16 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	selection_sort(t_list **a_head, t_list **b_head)
+int	get_int(t_list **node)
 {
-	int	min_val;
-
-	min_val = 0;
-	if (!a_head || !(*a_head))
-		return ;
-	while ((*a_head) != NULL)
-	{
-		min_val = get_min_value(*a_head);
-		if (get_int(a_head) == min_val)
-			pb(b_head, a_head);
-		else
-			ra(a_head);	
-	}
-	while (*b_head)
-		pa(a_head, b_head);
+	return (*(int *)(*node)->content);
 }

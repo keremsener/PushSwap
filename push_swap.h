@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 04:42:10 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/10 12:21:51 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	chunk_sort(t_list  **a_head, t_list **b_head);
 void	print_stack(t_list *a_head, t_list *b_head);
 int		get_max_value(t_list *list);
 int		get_min_value(t_list *list);
+int		get_int(t_list **node);
 double	compute_disorder(t_list *a_head);
 
 #endif
