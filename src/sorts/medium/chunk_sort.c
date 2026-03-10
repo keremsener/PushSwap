@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 11:13:30 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/10 12:24:18 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/10 17:05:05 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,61 @@
 
 static int	calc_chunk_size(int total_numbers)
 {
-	if (total_numbers <= 150)
-		return (5);
-	else
-		return (11);
+	int	i;
+
+	i = 2;
+	while (i < total_numbers)
+	{
+		if (i * i <= total_numbers && total_numbers < (i + 1) * (i + 1))
+			return (i);
+		else
+			i++;
+	}
+	return (i);
 }
 
-void	chunk_sort(t_list **a_head, t_list **b_head)
+
+void	chunk_sort(t_list  **a_head, t_list **b_head)
 {
 	int	chunk_size;
-	int	min_val;
-	int	max_val;
-	int	gap;
-	int	limit;
-	int	size;
+	int	i;
+	int	j;
+	// t_list	*temp = NULL;
 
+	i = 0;
+	j = 0;
 	if (!a_head || !(*a_head))
 		return ;
-	min_val = get_min_value(*a_head);
-	max_val = get_max_value(*a_head);
-	size = ft_lstsize(*a_head);
-	if (size <= 10)
-	{
-		selection_sort(a_head, b_head);
-		return ;
-	}
-	chunk_size = calc_chunk_size(size);
-	gap = (max_val - min_val) / chunk_size;
-	limit = min_val + gap;
+	chunk_size = calc_chunk_size(ft_lstsize(*a_head));
 	while (*a_head != NULL)
 	{
-		size = ft_lstsize(*a_head);
-		while (size > 0)
+		i = 0;
+		while (i < chunk_size)
 		{
-			if (get_int(a_head) <= limit)
-				pb(b_head, a_head);
-			else
-				ra(a_head);
+			pb(b_head, a_head);
+			i++;
+			j = 0;
+			while (j < i - 1 && (*b_head)->next != NULL)
+			{
+				if (get_int(b_head) > *(int *)(*b_head)->next->content)
+					sb(b_head);
+				rb(b_head);
+				j++;
+			}
+			while (j--)
+				rrb(b_head);
+		}
+	}
+	int	size;
+	pa(a_head, b_head);
+	while (*b_head)
+	{
+		size = ft_lstsize(*a_head);
+		while (size && get_int(b_head) > get_int(a_head))
+		{
+			ra(a_head);
 			size--;
 		}
-		limit += gap;
-	}
-	while (*b_head != NULL)
-	{
-		max_val = get_max_value(*b_head);
-		if (get_int(b_head) == max_val)
-			pa(a_head, b_head);
-		else
-			rb(b_head);
+		pa(a_head, b_head);
 	}
 }
