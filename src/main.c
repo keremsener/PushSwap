@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 01:51:35 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 02:04:01 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ int	main(int argc, const char *argv[])
 	a_head = split_args(argc - argi, argv + argi);
 	metrics.disorder = compute_disorder(a_head);
 	sort(&a_head, &b_head, &metrics);
+	if (metrics.config.bench_mode)
+		print_bench(metrics);
 	// print_stack(a_head, b_head);
 	return (0);
 }

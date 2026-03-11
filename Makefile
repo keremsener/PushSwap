@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/10 12:22:42 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/12 02:03:53 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ SRC_SORTS		=	simple/buble_sort.c \
 SRC_UTILS		=	print_stack.c \
 					get_value.c \
 					compute_disorder.c \
-					get_int.c
+					get_int.c \
+					print_bench.c
 
 SRCS			=	$(addprefix src/,$(SRC)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
@@ -112,6 +113,6 @@ samples/%.txt:
 
 test: samples/$(AMOUNT).txt
 	@$(MAKE) -s > /dev/null
-	@./$(NAME) --$(STRATEGY) $$(cat $<)
+	@./$(NAME) --$(STRATEGY) --bench $$(cat $<)
 
 .PHONY: all clean fclean re test

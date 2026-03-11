@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/11 17:34:17 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 02:03:57 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int		get_max_value(t_list *list);
 int		get_min_value(t_list *list);
 int		get_int(t_list *node);
 double	compute_disorder(t_list *a_head);
+void	print_bench(t_metrics metrics);
 
 #endif
