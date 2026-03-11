@@ -14,10 +14,12 @@
 
 void	buble_sort(t_list **a_head)
 {
+	t_op_count	ops;
 	int	size;
 	int	i;
 	int	j;
 
+	ft_bzero(&ops, sizeof(t_op_count));
 	if (!a_head || !*a_head || !(*a_head)->next)
 		return ;
 	size = ft_lstsize(*a_head);
@@ -28,11 +30,11 @@ void	buble_sort(t_list **a_head)
 		while (j < size - 1)
 		{
 			if (get_int(a_head) > *(int *)(*a_head)->next->content)
-				sa(a_head);
-			ra(a_head);
+				sa(a_head, &ops);
+			ra(a_head, &ops);
 			j++;
 		}
-		ra(a_head);
+		ra(a_head, &ops);
 		i++;
 	}
 }
