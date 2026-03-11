@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/09 05:55:34 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 01:31:06 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,23 @@ static t_list	*split_args(int argc, const char *argv[])
 	return (list);
 }
 
-static t_config	parse_option(const char *argument)
+static void	parse_option(const char *argument, t_config *config)
 {
-	t_config	config;
 	size_t		length;
 	
-	ft_bzero(&config, sizeof(t_config));
 	length = ft_strlen(argument);
 	if (!ft_strncmp(argument, "--simple", length))
-		config.strategy = SIMPLE;
+		config->strategy = SIMPLE;
 	else if (!ft_strncmp(argument, "--medium", length))
-		config.strategy = MEDIUM;
+		config->strategy = MEDIUM;
 	else if (!ft_strncmp(argument, "--complex", length))
-		config.strategy = COMPLEX;
+		config->strategy = COMPLEX;
 	else if (!ft_strncmp(argument, "--adaptive", length))
-		config.strategy = ADAPTIVE;
+		config->strategy = ADAPTIVE;
 	else if (!ft_strncmp(argument, "--bench", length))
-		config.bench_mode = true;
+		config->bench_mode = true;
 	// else
 	// 	error();
-	return (config);
 }
 
 static void	sort(t_list **a_head, t_list **b_head, t_metrics metrics)
@@ -103,7 +100,7 @@ int	main(int argc, const char *argv[])
 	ft_bzero(&metrics, sizeof(t_metrics));
 	argi = 1;
 	while (argi < argc && !ft_strncmp(argv[argi], "--", 2))
-		metrics.config = parse_option(argv[argi++]);
+		parse_option(argv[argi++], &metrics.config);
 	a_head = split_args(argc - argi, argv + argi);
 	metrics.disorder = compute_disorder(a_head);
 	sort(&a_head, &b_head, metrics);
