@@ -78,7 +78,7 @@ void	chunk_sort(t_list  **a_head, t_list **b_head);
 void	print_stack(t_list *a_head, t_list *b_head);
 int		get_max_value(t_list *list);
 int		get_min_value(t_list *list);
-int		get_int(t_list **node);
+int		get_int(t_list *node);
 double	compute_disorder(t_list *a_head);
 
 #endif

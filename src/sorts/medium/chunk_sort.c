@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 11:13:30 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/11 15:47:24 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/11 16:01:46 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	chunk_sort(t_list  **a_head, t_list **b_head)
 			j = 0;
 			while (j < i - 1 && (*b_head)->next != NULL)
 			{
-				if (get_int(b_head) > *(int *)(*b_head)->next->content)
+				if (get_int(*b_head) > get_int((*b_head)->next))
 					sb(b_head, &ops);
 				rb(b_head, &ops);
 				j++;
@@ -66,7 +66,7 @@ void	chunk_sort(t_list  **a_head, t_list **b_head)
 	while (*b_head)
 	{
 		size = ft_lstsize(*a_head);
-		while (size && get_int(b_head) > get_int(a_head))
+		while (size && get_int(*b_head) > get_int(*a_head))
 		{
 			ra(a_head, &ops);
 			size--;

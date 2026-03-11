@@ -29,7 +29,7 @@ void	buble_sort(t_list **a_head)
 		j = 0;
 		while (j < size - 1)
 		{
-			if (get_int(a_head) > *(int *)(*a_head)->next->content)
+			if (get_int(*a_head) > get_int((*a_head)->next))
 				sa(a_head, &ops);
 			ra(a_head, &ops);
 			j++;

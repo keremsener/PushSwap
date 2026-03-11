@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_value.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:41:23 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 13:57:00 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/11 16:07:08 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	get_max_value(t_list *list)
 
 	if (!list)
 		return (0);
-	result = *(int *)list->content;
+	result = get_int(list);
 	while (list != NULL)
 	{
-		if (*(int *)list->content > result)
-			result = *(int *)list->content;
+		if (get_int(list) > result)
+			result = get_int(list);
 		list = list->next;
 	}
 	return (result);
@@ -34,11 +34,11 @@ int	get_min_value(t_list *list)
 
 	if (!list)
 		return (0);
-	result = *(int *)list->content;
+	result = get_int(list);
 	while (list != NULL)
 	{
-		if (*(int *)list->content < result)
-			result = *(int *)list->content;
+		if (get_int(list) < result)
+			result = get_int(list);
 		list = list->next;
 	}
 	return (result);

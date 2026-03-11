@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_int.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:19:40 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/10 12:21:16 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/11 15:09:36 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_int(t_list **node)
+int	get_int(t_list *node)
 {
-	return (*(int *)(*node)->content);
+	return (*(int *)node->content);
 }
