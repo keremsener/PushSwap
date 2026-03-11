@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:27:06 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/10 12:28:03 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/11 15:46:22 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	selection_sort(t_list **a_head, t_list **b_head)
 {
+	t_op_count	ops;
 	int	min_val;
 
+	ft_bzero(&ops, sizeof(t_op_count));
 	min_val = 0;
 	if (!a_head || !(*a_head))
 		return ;
@@ -23,10 +25,10 @@ void	selection_sort(t_list **a_head, t_list **b_head)
 	{
 		min_val = get_min_value(*a_head);
 		if (get_int(a_head) == min_val)
-			pb(b_head, a_head);
+			pb(b_head, a_head, &ops);
 		else
-			ra(a_head);	
+			ra(a_head, &ops);	
 	}
 	while (*b_head)
-		pa(a_head, b_head);
+		pa(a_head, b_head, &ops);
 }

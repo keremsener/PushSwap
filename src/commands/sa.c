@@ -6,13 +6,13 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:45:21 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/07 21:19:49 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/11 15:39:17 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list **a)
+void	sa(t_list **a, t_op_count *ops)
 {
 	t_list	*three;
 	t_list	*two;
@@ -24,5 +24,6 @@ void	sa(t_list **a)
 	two = (*a)->next;
 	(*a)->next = three;
 	*a = two;
+	ops->sa++;
 	ft_printf("sa\n");
 }

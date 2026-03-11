@@ -6,14 +6,14 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:04:47 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/07 21:19:56 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/11 15:39:54 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b, t_op_count *ops)
 {
-	sa(a);
-	sb(b);
+	sa(a, ops);
+	sb(b, ops);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:23:35 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/05 11:11:39 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/11 15:37:38 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b, t_op_count *ops)
 {
-	ra(a);
-	rb(b);
+	ra(a, ops);
+	rb(b, ops);
 }
