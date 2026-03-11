@@ -6,18 +6,16 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:27:06 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/11 17:20:28 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/11 17:26:46 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	selection_sort(t_list **a_head, t_list **b_head)
+void	selection_sort(t_list **a_head, t_list **b_head, t_op_count *ops)
 {
-	t_op_count	ops;
 	int	min_val;
 
-	ft_bzero(&ops, sizeof(t_op_count));
 	min_val = 0;
 	if (!a_head || !(*a_head))
 		return ;
@@ -25,10 +23,10 @@ void	selection_sort(t_list **a_head, t_list **b_head)
 	{
 		min_val = get_min_value(*a_head);
 		if (get_int(*a_head) == min_val)
-			pb(b_head, a_head, &ops);
+			pb(b_head, a_head, ops);
 		else
-			ra(a_head, &ops);	
+			ra(a_head, ops);	
 	}
 	while (*b_head)
-		pa(a_head, b_head, &ops);
+		pa(a_head, b_head, ops);
 }

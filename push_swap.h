@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/11 15:40:46 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/11 17:34:17 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ void	rrr(t_list **a, t_list **b, t_op_count *ops);
 
 //	Sorting algorithms
 
-void	buble_sort(t_list **a_head);
-void	insertion_sort(t_list **a_head, t_list **b_head);
-void	selection_sort(t_list **a_head, t_list **b_head);
-void	selection_n_sort(t_list **a_head, t_list **b_head, int len);
+void	buble_sort(t_list **a_head, t_op_count *ops);
+void	insertion_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
+void	selection_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
+void	selection_n_sort(t_list **a_head, t_list **b_head, int len, t_op_count *ops);
 
 // Medium
 
-void	chunk_sort(t_list  **a_head, t_list **b_head);
+void	chunk_sort(t_list  **a_head, t_list **b_head, t_op_count *ops);
 
 //	Utilities
 

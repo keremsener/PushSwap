@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 01:31:06 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 01:51:35 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,27 @@ static void	parse_option(const char *argument, t_config *config)
 	// 	error();
 }
 
-static void	sort(t_list **a_head, t_list **b_head, t_metrics metrics)
+static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 {
-	if (metrics.config.strategy == ADAPTIVE)
+	if (metrics->config.strategy == ADAPTIVE)
 	{
-		if (metrics.disorder < 20)
-			selection_sort(a_head, b_head);
-		else if (metrics.disorder < 50)
-			chunk_sort(a_head, b_head);
+		if (metrics->disorder < 20)
+			selection_sort(a_head, b_head, &metrics->ops);
+		else if (metrics->disorder < 50)
+			chunk_sort(a_head, b_head, &metrics->ops);
 		else
 			ft_printf("complex-adaptive\n");
 	}
-	if (metrics.config.strategy == SIMPLE)
+	if (metrics->config.strategy == SIMPLE)
 	{
-		// insertion_sort(a_head, b_head); // 100: 5176, 500: 125829
-		// buble_sort(a_head); // 100: 12625, 500: 313343
-		selection_sort(a_head, b_head); // 100: 2635, 500: 63366
+		// buble_sort(a_head, &metrics->ops); // 100: 12625, 500: 313343
+		// insertion_sort(a_head, b_head, &metrics->ops); // 100: 5176, 500: 125829
+		selection_sort(a_head, b_head, &metrics->ops); // 100: 2635, 500: 63366
 	}
-	if (metrics.config.strategy == MEDIUM)
-		chunk_sort(a_head, b_head);
-	if (metrics.config.strategy == COMPLEX)
+	if (metrics->config.strategy == MEDIUM)
+		chunk_sort(a_head, b_head, &metrics->ops);
+	if (metrics->config.strategy == COMPLEX)
 		ft_printf("complex\n");
-	if (metrics.config.bench_mode)
-		ft_printf("bench\n");
 }
 
 int	main(int argc, const char *argv[])
@@ -103,7 +101,7 @@ int	main(int argc, const char *argv[])
 		parse_option(argv[argi++], &metrics.config);
 	a_head = split_args(argc - argi, argv + argi);
 	metrics.disorder = compute_disorder(a_head);
-	sort(&a_head, &b_head, metrics);
+	sort(&a_head, &b_head, &metrics);
 	// print_stack(a_head, b_head);
 	return (0);
 }
