@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 17:34:44 by adede             #+#    #+#             */
-/*   Updated: 2026/03/12 16:00:53 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 17:10:25 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 static void	print_disorder(double disorder)
 {
+	const int	precision = (int)(disorder * 100) % 100;
+
 	ft_putstr_fd("[bench] disorder:  ", 2);
 	ft_putnbr_fd((int)disorder, 2);
 	ft_putchar_fd('.', 2);
-	ft_putnbr_fd((int)(disorder * 100) % 100, 2);
+	if (precision < 10)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(precision, 2);
 	ft_putendl_fd("%", 2);
 }
 
