@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 17:34:44 by adede             #+#    #+#             */
-/*   Updated: 2026/03/12 12:25:16 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 16:00:53 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 static void	print_disorder(double disorder)
 {
-	ft_putstr_fd("[bench] ", 2);
-	ft_putstr_fd("disorder:  ", 2);
+	ft_putstr_fd("[bench] disorder:  ", 2);
 	ft_putnbr_fd((int)disorder, 2);
 	ft_putchar_fd('.', 2);
 	ft_putnbr_fd((int)(disorder * 100) % 100, 2);
-	ft_putchar_fd('%', 2);
-	ft_putchar_fd('\n', 2);
+	ft_putendl_fd("%", 2);
 }
 
-static void	print_strategy(t_strategy strategy)
+static void	print_strategy(t_strategy strategy, double disorder)
 {
 	const char	*names[4] = {
 		"Adaptive",
@@ -31,22 +29,25 @@ static void	print_strategy(t_strategy strategy)
 		"Medium",
 		"Complex"
 	};
-	const char	*complexity[4] = {
-		"",
-		"O(n2)",
+	const char	*complexity[3] = {
+		"O(n^2)",
 		"O(n√n)",
 		"O(n log n)"
 	};
 
-	ft_putstr_fd("[bench] ", 2);
-	ft_putstr_fd("strategy:  ", 2);
+	ft_putstr_fd("[bench] strategy:  ", 2);
 	ft_putstr_fd((char *)names[strategy], 2);
-	if (strategy != ADAPTIVE)
+	ft_putstr_fd(" / ", 2);
+	if (strategy == ADAPTIVE)
 	{
-		ft_putstr_fd(" / ", 2);
-		ft_putstr_fd((char *)complexity[strategy], 2);
+		if (disorder < 20)
+			strategy = SIMPLE;
+		else if (disorder < 50)
+			strategy = MEDIUM;
+		else
+			strategy = COMPLEX;
 	}
-	ft_putchar_fd('\n', 2);
+	ft_putendl_fd((char *)complexity[strategy - 1], 2);
 }
 
 static void	print_total(t_op_count ops)
@@ -65,8 +66,7 @@ static void	print_total(t_op_count ops)
 	total += ops.rra;
 	total += ops.rrb;
 	total += ops.rrr;
-	ft_putstr_fd("[bench] ", 2);
-	ft_putstr_fd("total_ops:  ", 2);
+	ft_putstr_fd("[bench] total_ops:  ", 2);
 	ft_putnbr_fd(total, 2);
 	ft_putchar_fd('\n', 2);
 }
@@ -102,7 +102,7 @@ static void	print_ops(t_op_count ops)
 void	print_bench(t_metrics metrics)
 {
 	print_disorder(metrics.disorder);
-	print_strategy(metrics.config.strategy);
+	print_strategy(metrics.config.strategy, metrics.disorder);
 	print_total(metrics.ops);
 	print_ops(metrics.ops);
 }
