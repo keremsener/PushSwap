@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:55:05 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 16:38:13 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/12 16:53:36 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,7 @@ void	turk_sort(t_list **a_head, t_list **b_head, t_op_count *ops)
 		}
 		i++;
 	}
-	if (size <= 100)
-		chunk = calc_chunk_size(size);
-	else
-		chunk = calc_chunk_size(size);
+	chunk = calc_chunk_size(size);
 	count = 0;
 	while (*a_head)
 	{
