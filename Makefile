@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
+#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/12 02:03:53 by adede            ###   ########.fr        #
+#    Updated: 2026/03/12 15:43:27 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,8 @@ SRC_COMMANDS	=	sa.c \
 SRC_SORTS		=	simple/buble_sort.c \
 					simple/instertion_sort.c \
 					simple/selection_sort.c \
-					medium/chunk_sort.c
-
+					medium/chunk_sort.c \
+					medium/turk_sort.c 
 SRC_UTILS		=	print_stack.c \
 					get_value.c \
 					compute_disorder.c \

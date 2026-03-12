@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 12:23:49 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 15:20:58 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,15 @@ void	selection_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
 // Medium
 
 void	chunk_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
+void	turk_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
 
 //	Utilities
 
 void	print_stack(t_list *a_head, t_list *b_head);
 int		get_max_value(t_list *list);
 int		get_min_value(t_list *list);
+t_list	*get_max_node(t_list *list);
+t_list	*get_min_node(t_list *list);
 int		get_int(t_list *node);
 double	compute_disorder(t_list *a_head);
 void	print_bench(t_metrics metrics);
