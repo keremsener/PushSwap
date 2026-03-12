@@ -6,7 +6,7 @@
 #    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/12 16:35:30 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/12 17:48:40 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,8 @@ SRC_UTILS		=	print_stack.c \
 					compute_disorder.c \
 					get_int.c \
 					print_bench.c \
-					calc_chunk_size.c
+					calc_chunk_size.c \
+					move_b_to_top.c
 
 SRCS			=	$(addprefix src/,$(SRC)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
