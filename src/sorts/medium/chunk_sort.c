@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 11:13:30 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/11 17:27:07 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 11:19:27 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,9 @@ void	chunk_sort(t_list  **a_head, t_list **b_head, t_op_count *ops)
 			size--;
 		}
 		pa(a_head, b_head, ops);
+		while (get_min_value(*a_head) != get_int(*a_head))
+			ra(a_head, ops);
 	}
+	
+	
 }
