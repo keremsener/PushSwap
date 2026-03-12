@@ -6,27 +6,11 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 11:13:30 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 11:19:27 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/12 16:46:50 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	calc_chunk_size(int total_numbers)
-{
-	int	i;
-
-	i = 2;
-	while (i < total_numbers)
-	{
-		if (i * i <= total_numbers && total_numbers < (i + 1) * (i + 1))
-			return (i);
-		else
-			i++;
-	}
-	return (i);
-}
-
 
 void	chunk_sort(t_list  **a_head, t_list **b_head, t_op_count *ops)
 {
@@ -73,6 +57,4 @@ void	chunk_sort(t_list  **a_head, t_list **b_head, t_op_count *ops)
 		while (get_min_value(*a_head) != get_int(*a_head))
 			ra(a_head, ops);
 	}
-	
-	
 }

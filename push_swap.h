@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 15:20:58 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/12 16:35:11 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ t_list	*get_min_node(t_list *list);
 int		get_int(t_list *node);
 double	compute_disorder(t_list *a_head);
 void	print_bench(t_metrics metrics);
+int	calc_chunk_size(int total_numbers);
 
 #endif
