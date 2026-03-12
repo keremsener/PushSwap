@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 17:34:44 by adede             #+#    #+#             */
-/*   Updated: 2026/03/12 02:04:05 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 12:25:16 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,20 @@ static void	print_strategy(t_strategy strategy)
 
 static void	print_total(t_op_count ops)
 {
-    int total;
+	int	total;
 
-    total = 0;
-    total += ops.sa;
-    total += ops.sb;
-    total += ops.ss;
-    total += ops.pa;
-    total += ops.pb;
-    total += ops.ra;
-    total += ops.rb;
-    total += ops.rr;
-    total += ops.rra;
-    total += ops.rrb;
-    total += ops.rrr;
+	total = 0;
+	total += ops.sa;
+	total += ops.sb;
+	total += ops.ss;
+	total += ops.pa;
+	total += ops.pb;
+	total += ops.ra;
+	total += ops.rb;
+	total += ops.rr;
+	total += ops.rra;
+	total += ops.rrb;
+	total += ops.rrr;
 	ft_putstr_fd("[bench] ", 2);
 	ft_putstr_fd("total_ops:  ", 2);
 	ft_putnbr_fd(total, 2);

@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 02:03:57 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/12 12:23:49 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ typedef enum e_strategy {
 	SIMPLE,
 	MEDIUM,
 	COMPLEX
-} t_strategy;
+}	t_strategy;
 
 typedef struct s_config {
 	t_strategy	strategy;
 	bool		bench_mode;
-} t_config;
+}	t_config;
 
 typedef struct s_op_count {
 	size_t	sa;
@@ -39,14 +39,14 @@ typedef struct s_op_count {
 	size_t	rra;
 	size_t	rrb;
 	size_t	rrr;
-} t_op_count;
+}	t_op_count;
 
 typedef struct s_metrics
 {
 	double		disorder;
 	t_config	config;
 	t_op_count	ops;
-} t_metrics;
+}	t_metrics;
 
 //	Commands
 
@@ -67,11 +67,10 @@ void	rrr(t_list **a, t_list **b, t_op_count *ops);
 void	buble_sort(t_list **a_head, t_op_count *ops);
 void	insertion_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
 void	selection_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
-void	selection_n_sort(t_list **a_head, t_list **b_head, int len, t_op_count *ops);
 
 // Medium
 
-void	chunk_sort(t_list  **a_head, t_list **b_head, t_op_count *ops);
+void	chunk_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
 
 //	Utilities
 
