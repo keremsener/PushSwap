@@ -12,6 +12,14 @@
 
 #include "push_swap.h"
 
+static int	str_is_digits(const char *argument)
+{
+	while (*argument)
+		if (!ft_isdigit(*argument++))
+			return (0);
+	return (1);
+}
+
 static t_list	*split_args(int argc, const char *argv[])
 {
 	t_list	*list;
@@ -28,6 +36,8 @@ static t_list	*split_args(int argc, const char *argv[])
 		j = 0;
 		while (split_args[j])
 		{
+			if (!str_is_digits(split_args[j]))
+				error();
 			val = (int *)malloc(sizeof(int));
 			if (!val)
 				return (NULL);
@@ -44,21 +54,18 @@ static t_list	*split_args(int argc, const char *argv[])
 
 static void	parse_option(const char *argument, t_config *config)
 {
-	size_t		length;
-	
-	length = ft_strlen(argument);
-	if (!ft_strncmp(argument, "--simple", length))
+		if (!ft_strncmp(argument, "--simple", 9))
 		config->strategy = SIMPLE;
-	else if (!ft_strncmp(argument, "--medium", length))
+	else if (!ft_strncmp(argument, "--medium", 9))
 		config->strategy = MEDIUM;
-	else if (!ft_strncmp(argument, "--complex", length))
+	else if (!ft_strncmp(argument, "--complex", 10))
 		config->strategy = COMPLEX;
-	else if (!ft_strncmp(argument, "--adaptive", length))
+	else if (!ft_strncmp(argument, "--adaptive", 11))
 		config->strategy = ADAPTIVE;
-	else if (!ft_strncmp(argument, "--bench", length))
+	else if (!ft_strncmp(argument, "--bench", 8))
 		config->bench_mode = true;
-	// else
-	// 	error();
+	else
+	error();
 }
 
 static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)

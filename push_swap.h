@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 17:48:21 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/12 18:04:41 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ t_list	*get_min_node(t_list *list);
 int		get_int(t_list *node);
 double	compute_disorder(t_list *a_head);
 void	print_bench(t_metrics metrics);
-int	calc_chunk_size(int total_numbers);
+int		calc_chunk_size(int total_numbers);
 void	move_b_to_top(t_list **b_head, t_list *cheapest_b, int b_size,
-		t_op_count *ops);
+			t_op_count *ops);
+void	error(void);
 
 #endif
