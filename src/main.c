@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 02:04:01 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/13 07:55:55 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 static int	str_is_digits(const char *argument)
 {
+	if (!(*argument == '-' || *argument == '+' || ft_isdigit(*argument)))
+		return (0);
+	argument++;
 	while (*argument)
 		if (!ft_isdigit(*argument++))
 			return (0);
