@@ -6,19 +6,47 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/13 07:55:55 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/13 10:16:32 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
+
+static size_t	max_int_digits(void)
+{
+	int		max;
+	size_t	digits;
+
+	max = INT_MAX;
+	digits = 0;
+	while (max != 0)
+	{
+		max /= 10;
+		digits++;
+	}
+	return (digits);
+}
 
 static int	str_is_digits(const char *argument)
 {
-	if (!(*argument == '-' || *argument == '+' || ft_isdigit(*argument)))
+	long		result;
+	size_t		digits;
+	int			sign;
+
+	result = 0;
+	digits = 0;
+	sign = 1;
+	if (*argument == '-')
+		sign = -1;
+	if (*argument == '-' || *argument == '+')
+		argument++;
+	while (ft_isdigit(argument[digits]) && digits < max_int_digits())
+		result = result * 10 + argument[digits++] - '0';
+	if (digits == 0 || argument[digits] != '\0')
 		return (0);
-	argument++;
-	while (*argument)
-		if (!ft_isdigit(*argument++))
+	result *= sign;
+	if (result < INT_MIN || INT_MAX < result)
 			return (0);
 	return (1);
 }
