@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/13 10:16:32 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/15 16:59:52 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,14 @@ static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 		selection_sort(a_head, b_head, &metrics->ops); // 100: 2635, 500: 63366
 	}
 	if (metrics->config.strategy == MEDIUM)
-		chunk_sort(a_head, b_head, &metrics->ops);
+	{
+		// chunk_sort(a_head, b_head, &metrics->ops);
+		turk_sort(a_head, b_head, &metrics->ops);
+	}
 	if (metrics->config.strategy == COMPLEX)
-		ft_printf("complex\n");
+	{
+		up_turk_sort(a_head, b_head, &metrics->ops);		
+	}
 }
 
 int	main(int argc, const char *argv[])
