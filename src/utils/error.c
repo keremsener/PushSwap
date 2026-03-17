@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 18:00:36 by adede             #+#    #+#             */
-/*   Updated: 2026/03/12 18:04:50 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/17 10:39:04 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	error(void)
 {
-	ft_printf("Error\n");
+	ft_putendl_fd("Error", 2);
 	exit(EXIT_FAILURE);
 }
