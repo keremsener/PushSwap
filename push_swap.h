@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/17 11:22:20 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/17 13:56:59 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	up_turk_sort(t_list **a_head, t_list **b_head, t_op_count *ops);
 
 //	Utilities
 
+t_list	*parse(int argc, const char *argv[], t_config *config);
 void	print_stack(t_list *a_head, t_list *b_head);
 t_list	*get_max_node(t_list *list);
 t_list	*get_min_node(t_list *list);
