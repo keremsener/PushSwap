@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
+#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/17 12:37:01 by adede            ###   ########.fr        #
+#    Updated: 2026/03/17 14:17:14 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ AMOUNT			=	100
 # =========================================
 
 NAME 			=	push_swap
+NAME_BONUS 		=	checker
 
 LIBFT_DIR		=	libft
 LIBFT			=	$(LIBFT_DIR)/libft.a
@@ -48,6 +49,7 @@ LIBFT			=	$(LIBFT_DIR)/libft.a
 INCLUDES		=	-I . -I $(LIBFT_DIR)
 
 SRC				=	main.c
+SRC_BONUS		=	main_bonus.c
 
 SRC_COMMANDS	=	sa.c \
 					sb.c \
@@ -83,6 +85,13 @@ SRCS			=	$(addprefix src/,$(SRC)) \
 
 OBJS			=	$(SRCS:.c=.o)
 
+SRCS_BONUS		=	$(addprefix src/,$(SRC_BONUS)) \
+					$(addprefix src/commands/,$(SRC_COMMANDS)) \
+					$(addprefix src/sorts/,$(SRC_SORTS)) \
+					$(addprefix src/utils/,$(SRC_UTILS))
+
+OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): ${LIBFT} $(OBJS)
@@ -95,6 +104,13 @@ $(LIBFT):
 	@printf "$(BLUE) Creating library$(RESET)\n"
 	@$(MAKE) -s -C $(LIBFT_DIR)
 
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): ${LIBFT} $(OBJS_BONUS)
+	@printf "$(GREEN)$(BOLD)[$(NAME_BONUS)]$(RESET)"
+	@printf "$(GREEN) Linking$(RESET)\n"
+	@cc -Wall -Werror -Wextra $(INCLUDES) $(OBJS_BONUS) $(LIBFT) -o $@
+	
 %.o: %.c
 	@printf "$(DIM)$(BOLD)[$(NAME)]$(RESET)"
 	@printf "$(DIM) Compiling $<$(RESET)\n"
