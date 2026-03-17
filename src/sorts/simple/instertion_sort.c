@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instertion_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:53:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/11 17:26:31 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/17 11:25:53 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	forwhile(t_list **a_head, t_list **b_head, int b_size, int max_val, 
 {
 	while (*a_head)
 	{
-		max_val = get_max_value(*b_head);
+		max_val = get_int(get_max_node(*b_head));
 		while (max_val != get_int(*b_head))
 		{
 			rb(b_head, ops);
@@ -52,7 +52,7 @@ void	insertion_sort(t_list **a_head, t_list **b_head, t_op_count *ops)
 		sa(a_head, ops);
 	pb(b_head, a_head, ops);
 	forwhile(a_head, b_head, b_size, max_val, ops);
-	max_val = get_max_value(*b_head);
+	max_val = get_int(get_max_node(*b_head));
 	while (max_val != get_int(*b_head))
 	{
 		rb(b_head, ops);

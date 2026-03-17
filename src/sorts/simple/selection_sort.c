@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:27:06 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/11 17:26:46 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/17 11:22:44 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	selection_sort(t_list **a_head, t_list **b_head, t_op_count *ops)
 		return ;
 	while ((*a_head) != NULL)
 	{
-		min_val = get_min_value(*a_head);
+		min_val = get_int(get_min_node(*a_head));
 		if (get_int(*a_head) == min_val)
 			pb(b_head, a_head, ops);
 		else

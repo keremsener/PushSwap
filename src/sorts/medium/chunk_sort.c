@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 11:13:30 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/13 13:01:23 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/17 11:21:58 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	push_a(t_list **a_head, t_list **b_head, t_op_count *ops)
 			size--;
 		}
 		pa(a_head, b_head, ops);
-		while (get_min_value(*a_head) != get_int(*a_head))
+		while (get_int(get_min_node(*a_head)) != get_int(*a_head))
 			ra(a_head, ops);
 	}
 }
