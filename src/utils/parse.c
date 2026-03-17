@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 09:01:09 by adede             #+#    #+#             */
-/*   Updated: 2026/03/17 14:05:24 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/17 17:17:13 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,25 @@ static void	parse_option(const char *argument, t_config *config)
 		error();
 }
 
+static void	check_duplicate(t_list *list)
+{
+	t_list	*outer;
+	t_list	*inner;
+
+	outer = list;
+	while (outer)
+	{
+		inner = outer->next;
+		while (inner)
+		{
+			if (get_int(inner) == get_int(outer))
+				error();
+			inner = inner->next;
+		}
+		outer = outer->next;
+	}
+}
+
 t_list	*parse(int argc, const char *argv[], t_config *config)
 {
 	t_list	*list;
@@ -103,5 +122,6 @@ t_list	*parse(int argc, const char *argv[], t_config *config)
 		parse_option(argv[argi++], config);
 	while (argi < argc)
 		ft_lstadd_back(&list, parse_number(argv[argi++]));
+	check_duplicate(list);
 	return (list);
 }
