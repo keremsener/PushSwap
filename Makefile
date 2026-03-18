@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/17 14:17:14 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/18 18:40:26 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,17 +51,10 @@ INCLUDES		=	-I . -I $(LIBFT_DIR)
 SRC				=	main.c
 SRC_BONUS		=	main_bonus.c
 
-SRC_COMMANDS	=	sa.c \
-					sb.c \
-					ss.c \
-					pb.c \
-					pa.c \
-					ra.c \
-					rb.c \
-					rr.c \
-					rra.c \
-					rrb.c \
-					rrr.c
+SRC_COMMANDS	=	push.c \
+					swap.c \
+					rotate.c \
+					rotate_reverse.c \
 
 SRC_SORTS		=	simple/buble_sort.c \
 					simple/instertion_sort.c \
