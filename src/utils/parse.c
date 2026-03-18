@@ -6,49 +6,38 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 09:01:09 by adede             #+#    #+#             */
-/*   Updated: 2026/03/17 17:17:13 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/18 17:13:10 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-static size_t	max_int_digits(void)
-{
-	int		max;
-	size_t	digits;
-
-	max = INT_MAX;
-	digits = 0;
-	while (max != 0)
-	{
-		max /= 10;
-		digits++;
-	}
-	return (digits);
-}
-
-static int	str_is_digits(const char *argument)
+static bool	str_is_int(const char *argument)
 {
 	long		result;
-	size_t		digits;
 	int			sign;
 
 	result = 0;
-	digits = 0;
 	sign = 1;
 	if (*argument == '-')
 		sign = -1;
 	if (*argument == '-' || *argument == '+')
 		argument++;
-	while (ft_isdigit(argument[digits]) && digits < max_int_digits())
-		result = result * 10 + argument[digits++] - '0';
-	if (digits == 0 || argument[digits] != '\0')
-		return (0);
-	result *= sign;
-	if (result < INT_MIN || INT_MAX < result)
-		return (0);
-	return (1);
+	if (!ft_isdigit(*argument))
+		return (false);
+	while (ft_isdigit(*argument))
+	{
+		result = result * 10 + (*argument - '0');
+		if ((sign == 1 && result > INT_MAX))
+			return (false);
+		if ((sign == -1 && -result < INT_MIN))
+			return (false);
+		argument++;
+	}
+	if (*argument != '\0')
+		return (false);
+	return (true);
 }
 
 static t_list	*parse_number(const char *argument)
@@ -63,7 +52,7 @@ static t_list	*parse_number(const char *argument)
 	i = 0;
 	while (split_arg[i])
 	{
-		if (!str_is_digits(split_arg[i]))
+		if (!str_is_int(split_arg[i]))
 			error();
 		val = ft_calloc(1, sizeof(int));
 		if (!val)
