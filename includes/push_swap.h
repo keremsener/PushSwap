@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 17:59:22 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 19:10:28 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ typedef struct s_metrics
 	t_config	config;
 	t_op_count	ops;
 }				t_metrics;
+
+//	Operations
+
+bool	push(t_list **from, t_list **to);
+bool	swap(t_list **stack);
+bool	rotate(t_list **stack);
+bool	rotate_reverse(t_list **stack);
 
 //	Commands
 

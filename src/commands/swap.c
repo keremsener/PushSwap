@@ -6,13 +6,13 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:51:13 by adede             #+#    #+#             */
-/*   Updated: 2026/03/18 18:09:17 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 19:09:22 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	swap(t_list **stack)
+bool	swap(t_list **stack)
 {
 	t_list	*first;
 	t_list	*second;

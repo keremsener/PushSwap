@@ -6,13 +6,13 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:51:13 by adede             #+#    #+#             */
-/*   Updated: 2026/03/18 18:39:31 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 19:10:13 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	rotate_reverse(t_list **stack)
+bool	rotate_reverse(t_list **stack)
 {
 	t_list	*before_last;
 

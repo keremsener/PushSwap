@@ -6,13 +6,13 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:27:07 by adede             #+#    #+#             */
-/*   Updated: 2026/03/18 18:00:21 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 19:09:25 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	push(t_list **from, t_list **to)
+bool	push(t_list **from, t_list **to)
 {
 	t_list	*temp;
 
