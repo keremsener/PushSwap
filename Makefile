@@ -6,7 +6,7 @@
 #    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/23 16:54:22 by adede            ###   ########.fr        #
+#    Updated: 2026/03/23 17:41:59 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,8 +79,7 @@ SRCS			=	$(addprefix src/,$(MAIN)) \
 OBJS			=	$(SRCS:.c=.o)
 
 SRC_BONUS		=	checker.c \
-					gnl/get_next_line.c \
-					gnl/gnl_utils.c \
+					get_next_line.c \
 
 SRCS_BONUS		=	$(addprefix src/,$(MAIN_BONUS)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
@@ -115,12 +114,12 @@ $(NAME_BONUS): ${LIBFT} $(OBJS_BONUS)
 
 clean:
 	@printf "$(YELLOW)Cleaning objects$(RESET)\n"
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
 	@$(MAKE) -s -C $(LIBFT_DIR) clean
 
 fclean: clean
 	@printf "$(RED)Cleaning all$(RESET)\n"
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_BONUS)
 	@$(MAKE) -s -C $(LIBFT_DIR) fclean
 
 re: fclean all

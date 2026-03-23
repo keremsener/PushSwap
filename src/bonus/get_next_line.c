@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.c                                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:27:27 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 14:27:28 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/23 17:03:08 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include <stdlib.h>
 #include "get_next_line.h"
+#include <stdlib.h>
 
 static char	*helper(char **stash, char *buff)
 {
@@ -32,9 +32,9 @@ static char	*helper(char **stash, char *buff)
 		counter++;
 	if ((*stash)[counter] == '\n')
 		counter++;
-	line = gnl_substr(*stash, 0, counter);
+	line = ft_substr(*stash, 0, counter);
 	temp = *stash;
-	*stash = gnl_substr(temp, counter, gnl_strlen(temp) - counter);
+	*stash = ft_substr(temp, counter, ft_strlen(temp) - counter);
 	free (temp);
 	return (line);
 }
@@ -51,7 +51,7 @@ char	*get_next_line(int fd)
 	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
-	while (!gnl_strchr(stash, '\n') && counter != 0)
+	while (!ft_strchr(stash, '\n') && counter != 0)
 	{
 		counter = read(fd, buff, BUFFER_SIZE);
 		if (counter == -1)
@@ -62,7 +62,7 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		buff[counter] = '\0';
-		stash = gnl_strjoin(stash, buff);
+		stash = ft_strjoin(stash, buff);
 	}
 	return (helper(&stash, buff));
 }
