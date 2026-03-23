@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/23 14:43:05 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/23 16:54:22 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,8 @@ LIBFT			=	$(LIBFT_DIR)/libft.a
 
 INCLUDES		=	-I . -I $(LIBFT_DIR)
 
-SRC				=	main.c
-SRC_BONUS		=	main_bonus.c
+MAIN			=	main.c
+MAIN_BONUS		=	main_bonus.c
 
 SRC_COMMANDS	=	push.c \
 					swap.c \
@@ -71,20 +71,21 @@ SRC_UTILS		=	compute_disorder.c \
 					print_stack.c \
 					sort_helpers.c \
 
-SRCS			=	$(addprefix src/,$(SRC)) \
-					$(addprefix src/commands/,$(SRC_COMMANDS)) \
-					$(addprefix src/sorts/,$(SRC_SORTS)) \
-					$(addprefix src/utils/,$(SRC_UTILS))
-
-OBJS			=	$(SRCS:.c=.o)
-
-SRCS_BONUS		=	$(addprefix src/,$(SRC_BONUS)) \
+SRCS			=	$(addprefix src/,$(MAIN)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
 					$(addprefix src/sorts/,$(SRC_SORTS)) \
 					$(addprefix src/utils/,$(SRC_UTILS)) \
-					bonus/checker.c \
+
+OBJS			=	$(SRCS:.c=.o)
+
+SRC_BONUS		=	checker.c \
 					gnl/get_next_line.c \
-					gnl/gnl_utils.c
+					gnl/gnl_utils.c \
+
+SRCS_BONUS		=	$(addprefix src/,$(MAIN_BONUS)) \
+					$(addprefix src/commands/,$(SRC_COMMANDS)) \
+					$(addprefix src/utils/,$(SRC_UTILS)) \
+					$(addprefix src/bonus/,$(SRC_BONUS)) \
 
 OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 

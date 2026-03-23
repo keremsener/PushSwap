@@ -4,6 +4,7 @@
 *.a
 .bonus
 push_swap
+checker
 samples/*
 !samples/100.txt
 !samples/500.txt
