@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 10:18:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 15:30:51 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/23 18:43:22 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "get_next_line_bonus.h"
 
-static void execute_command(t_list **a_head, t_list **b_head, char *gnl, t_op_count *ops)
+static void	execute_command(t_list **a_head, t_list **b_head, char *gnl, t_op_count *ops)
 {
+	ft_printf("zort\n");
 	if (ft_strncmp(gnl, "sa\n", 3) == 0)
 		sa(a_head, ops);
 	else if (ft_strncmp(gnl, "sb\n", 3) == 0)
@@ -42,16 +44,17 @@ static void execute_command(t_list **a_head, t_list **b_head, char *gnl, t_op_co
 
 static void	sort(t_list **a_head, t_list **b_head, t_op_count *ops)
 {
-    char    *gnl;
-    gnl = get_next_line(0);
-    while (gnl != NULL)
-    {
+	char	*gnl;
+
+	gnl = get_next_line(0);
+	while (gnl)
+	{
 		execute_command(a_head, b_head, gnl, ops);
 		print_stack(*a_head, *b_head);
 		free(gnl);
-        gnl = get_next_line(0);
-    }
-    
+		gnl = get_next_line(0);
+	}
+
 }
 
 int	main(int argc, const char *argv[])

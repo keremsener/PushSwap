@@ -6,7 +6,7 @@
 #    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/23 17:41:59 by adede            ###   ########.fr        #
+#    Updated: 2026/03/23 18:36:27 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ NAME_BONUS 		=	checker
 LIBFT_DIR		=	libft
 LIBFT			=	$(LIBFT_DIR)/libft.a
 
-INCLUDES		=	-I . -I $(LIBFT_DIR)
+INCLUDES		=	-I ./includes -I $(LIBFT_DIR)
 
 MAIN			=	main.c
 MAIN_BONUS		=	main_bonus.c
@@ -78,8 +78,8 @@ SRCS			=	$(addprefix src/,$(MAIN)) \
 
 OBJS			=	$(SRCS:.c=.o)
 
-SRC_BONUS		=	checker.c \
-					get_next_line.c \
+SRC_BONUS		=	checker_bonus.c \
+					get_next_line_bonus.c \
 
 SRCS_BONUS		=	$(addprefix src/,$(MAIN_BONUS)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
