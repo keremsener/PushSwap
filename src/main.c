@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/17 13:54:02 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 11:51:07 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,16 @@ static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 		if (metrics->disorder < 20)
 			selection_sort(a_head, b_head, &metrics->ops);
 		else if (metrics->disorder < 50)
-			chunk_sort(a_head, b_head, &metrics->ops);
+			turk_sort(a_head, b_head, &metrics->ops);
 		else
-			ft_printf("complex-adaptive\n");
+			up_turk_sort(a_head, b_head, &metrics->ops);
 	}
 	if (metrics->config.strategy == SIMPLE)
-	{
-		// buble_sort(a_head, &metrics->ops); // 100: 12625, 500: 313343
-		// insertion_sort(a_head, b_head, &metrics->ops); // 100: 5176, 500: 125829
-		selection_sort(a_head, b_head, &metrics->ops); // 100: 2635, 500: 63366
-	}
+		selection_sort(a_head, b_head, &metrics->ops);
 	if (metrics->config.strategy == MEDIUM)
-	{
-		// chunk_sort(a_head, b_head, &metrics->ops);
 		turk_sort(a_head, b_head, &metrics->ops);
-	}
 	if (metrics->config.strategy == COMPLEX)
-	{
-		up_turk_sort(a_head, b_head, &metrics->ops);		
-	}
+		up_turk_sort(a_head, b_head, &metrics->ops);
 }
 
 int	main(int argc, const char *argv[])
@@ -55,6 +46,7 @@ int	main(int argc, const char *argv[])
 	sort(&a_head, &b_head, &metrics);
 	if (metrics.config.bench_mode)
 		print_bench(metrics);
+	// print_stack(a_head, b_head);
 	ft_lstclear(&a_head, free);
 	return (0);
 }

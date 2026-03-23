@@ -6,18 +6,20 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 17:18:06 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/17 10:55:47 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/23 10:52:18 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	smart_return(t_list **a_head, t_list
-						**b_head, int *arr, int size, t_op_count *ops)
+static void	smart_return(t_list **a_head, t_list **b_head, int *arr,
+		t_op_count *ops)
 {
-	int max_idx;
-	t_list *target;
+	int		size;
+	int		max_idx;
+	t_list	*target;
 
+	size = ft_lstsize(*b_head);
 	max_idx = size - 1;
 	while (max_idx >= 0)
 	{
@@ -39,12 +41,13 @@ static void	smart_return(t_list **a_head, t_list
 		}
 	}
 }
-static void ft_a_head(t_list **a_head, t_list **b_head, int *arr,
-					  t_op_count *ops)
+
+static void	ft_a_head(t_list **a_head, t_list **b_head, int *arr,
+		t_op_count *ops)
 {
-	int size;
-	int count;
-	int chunk;
+	int	size;
+	int	count;
+	int	chunk;
 
 	size = ft_lstsize(*a_head);
 	chunk = calc_chunk_size(size);
@@ -69,11 +72,11 @@ static void ft_a_head(t_list **a_head, t_list **b_head, int *arr,
 	}
 }
 
-static void helper(int size, int *arr)
+static void	helper(int size, int *arr)
 {
-	int i;
-	int j;
-	int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = 0;
 	while (i < size - 1)
@@ -93,9 +96,9 @@ static void helper(int size, int *arr)
 	}
 }
 
-static void arr_sort(int *arr, int size, t_list *target_node)
+static void	arr_sort(int *arr, int size, t_list *target_node)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -107,19 +110,19 @@ static void arr_sort(int *arr, int size, t_list *target_node)
 	helper(size, arr);
 }
 
-void up_turk_sort(t_list **a_head, t_list **b_head, t_op_count *ops)
+void	up_turk_sort(t_list **a_head, t_list **b_head, t_op_count *ops)
 {
-	int *arr;
-	int size;
-	t_list *target_node;
+	int		*arr;
+	int		size;
+	t_list	*target_node;
 
 	size = ft_lstsize(*a_head);
 	arr = ft_calloc(size, sizeof(int));
 	if (!arr)
-		return;
+		return ;
 	target_node = *a_head;
 	arr_sort(arr, size, target_node);
 	ft_a_head(a_head, b_head, arr, ops);
-	smart_return(a_head, b_head, arr, size, ops);
+	smart_return(a_head, b_head, arr, ops);
 	free(arr);
 }

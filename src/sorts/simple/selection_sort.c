@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:27:06 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/17 11:22:44 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/23 12:28:17 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	selection_sort(t_list **a_head, t_list **b_head, t_op_count *ops)
 		if (get_int(*a_head) == min_val)
 			pb(b_head, a_head, ops);
 		else
-			ra(a_head, ops);	
+			ra(a_head, ops);
 	}
 	while (*b_head)
 		pa(a_head, b_head, ops);

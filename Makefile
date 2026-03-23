@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
+#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/23 13:07:45 by adede            ###   ########.fr        #
+#    Updated: 2026/03/23 14:43:05 by ksener           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,9 @@ SRCS_BONUS		=	$(addprefix src/,$(SRC_BONUS)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
 					$(addprefix src/sorts/,$(SRC_SORTS)) \
 					$(addprefix src/utils/,$(SRC_UTILS)) \
-					bonus/checker.c
+					bonus/checker.c \
+					gnl/get_next_line.c \
+					gnl/gnl_utils.c
 
 OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 

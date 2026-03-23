@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 09:01:09 by adede             #+#    #+#             */
-/*   Updated: 2026/03/18 17:13:10 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 11:40:43 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static bool	str_is_int(const char *argument)
 {
-	long		result;
-	int			sign;
+	long	result;
+	int		sign;
 
 	result = 0;
 	sign = 1;
@@ -31,7 +31,7 @@ static bool	str_is_int(const char *argument)
 		result = result * 10 + (*argument - '0');
 		if ((sign == 1 && result > INT_MAX))
 			return (false);
-		if ((sign == -1 && -result < INT_MIN))
+		if ((sign == -1 && (-result < INT_MIN)))
 			return (false);
 		argument++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 13:03:01 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 15:17:02 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include "libft.h"
 # include <stdbool.h>
+#include "gnl/get_next_line.h"
 
 typedef enum e_strategy
 {
@@ -98,6 +99,6 @@ void	move_b_to_top(t_list **b_head, t_list *cheapest_b, int b_size,
 
 // Bonus
 
-int		checker(t_list **a_head, t_list **b_head, t_op_count *ops);
+int		checker(t_list **a_head, t_list **b_head, t_op_count *ops, int size);
 
 #endif
