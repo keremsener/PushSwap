@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_b_to_top.c                                    :+:      :+:    :+:   */
+/*   sort_helpers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 17:47:46 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/12 17:49:20 by ksener           ###   ########.fr       */
+/*   Created: 2026/03/23 12:50:02 by adede             #+#    #+#             */
+/*   Updated: 2026/03/23 12:52:54 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,19 @@ void	move_b_to_top(t_list **b_head, t_list *cheapest_b, int b_size,
 		while (*b_head != cheapest_b)
 			rrb(b_head, ops);
 	}
+}
+
+int	calc_chunk_size(int total_numbers)
+{
+	int	i;
+
+	i = 2;
+	while (i < total_numbers)
+	{
+		if (i * i <= total_numbers && total_numbers < (i + 1) * (i + 1))
+			return (i);
+		else
+			i++;
+	}
+	return (i);
 }

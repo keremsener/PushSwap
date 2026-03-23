@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/23 10:32:18 by ksener           ###   ########.fr        #
+#    Updated: 2026/03/23 13:07:45 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,15 +61,15 @@ SRC_SORTS		=	simple/buble_sort.c \
 					simple/selection_sort.c \
 					medium/chunk_sort.c \
 					medium/turk_sort.c \
-					complex/upgraded_turk_sort.c
-SRC_UTILS		=	print_stack.c \
+					complex/upgraded_turk_sort.c \
+
+SRC_UTILS		=	compute_disorder.c \
+					error.c \
 					get.c \
-					compute_disorder.c \
-					print_bench.c \
-					calc_chunk_size.c \
-					move_b_to_top.c \
 					parse.c \
-					error.c
+					print_bench.c \
+					print_stack.c \
+					sort_helpers.c \
 
 SRCS			=	$(addprefix src/,$(SRC)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
@@ -101,10 +101,10 @@ $(LIBFT):
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): ${LIBFT} $(OBJS_BONUS)
-	@printf "$(GREEN)$(BOLD)[$(NAME_BONUS)]$(RESET)"
-	@printf "$(GREEN) Linking$(RESET)\n"
+	@printf "$(YELLOW)$(BOLD)[$(NAME_BONUS)]$(RESET)"
+	@printf "$(YELLOW) Linking$(RESET)\n"
 	@cc -Wall -Werror -Wextra $(INCLUDES) $(OBJS_BONUS) $(LIBFT) -o $@
-	
+
 %.o: %.c
 	@printf "$(DIM)$(BOLD)[$(NAME)]$(RESET)"
 	@printf "$(DIM) Compiling $<$(RESET)\n"
