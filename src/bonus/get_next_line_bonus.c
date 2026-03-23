@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:27:27 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 18:49:32 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/23 18:51:02 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*get_next_line(int fd)
 	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
+	stash = ft_strdup("");
 	while (!ft_strchr(stash, '\n') && counter != 0)
 	{
 		counter = read(fd, buff, BUFFER_SIZE);
