@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 09:01:09 by adede             #+#    #+#             */
-/*   Updated: 2026/03/23 11:40:43 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/24 12:01:20 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ static t_list	*parse_number(const char *argument)
 
 	list = NULL;
 	split_arg = ft_split(argument, ' ');
+	if (!split_arg[0])
+		error();
 	i = 0;
 	while (split_arg[i])
 	{
