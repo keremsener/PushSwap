@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/24 14:11:52 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/24 15:32:37 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 				up_turk_sort(a_head, b_head, &metrics->ops);
 		}
 		if (metrics->config.strategy == SIMPLE)
-			insertion_sort(a_head, b_head, &metrics->ops);
+			selection_sort(a_head, b_head, &metrics->ops);
 		if (metrics->config.strategy == MEDIUM)
 			turk_sort(a_head, b_head, &metrics->ops);
 		if (metrics->config.strategy == COMPLEX)
