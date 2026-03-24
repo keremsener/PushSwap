@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 19:10:28 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/24 09:34:29 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,6 @@ void	move_b_to_top(t_list **b_head, t_list *cheapest_b, int b_size,
 
 // Bonus
 
-int		checker(t_list **a_head, t_list **b_head, t_op_count *ops, int size);
+bool	checker(t_list **a_head, t_list **b_head, int size);
 
 #endif
