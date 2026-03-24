@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_helpers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:50:02 by adede             #+#    #+#             */
-/*   Updated: 2026/03/24 14:09:20 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/24 16:12:19 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	five(t_list **a_head, t_list **b_head, t_metrics *metrics)
 			ra(a_head, &metrics->ops);
 		size--;
 	}
-	pa(a_head, b_head, &metrics->ops);
+	three(a_head, b_head, metrics);
 	pa(a_head, b_head, &metrics->ops);
 	pa(a_head, b_head, &metrics->ops);
 	pa(a_head, b_head, &metrics->ops);
