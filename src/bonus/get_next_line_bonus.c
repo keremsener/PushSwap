@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:27:27 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 18:51:02 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/24 15:24:49 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ static char	*helper(char **stash, char *buff)
 	return (line);
 }
 
+static void free_stash(char *stash, char *buff)
+{
+	free(buff);
+	free(stash);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*stash;
@@ -50,14 +56,14 @@ char	*get_next_line(int fd)
 	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
-	stash = ft_strdup("");
+	if (!stash)
+		stash = ft_strdup("");
 	while (!ft_strchr(stash, '\n') && counter != 0)
 	{
 		counter = read(fd, buff, BUFFER_SIZE);
 		if (counter == -1)
 		{
-			free (buff);
-			free (stash);
+			free_stash(stash, buff);
 			stash = NULL;
 			return (NULL);
 		}
