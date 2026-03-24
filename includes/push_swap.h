@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:48:24 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/24 09:34:29 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/24 11:54:36 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ void	print_stack(t_list *a_head, t_list *b_head);
 int		calc_chunk_size(int total_numbers);
 void	move_b_to_top(t_list **b_head, t_list *cheapest_b, int b_size,
 			t_op_count *ops);
-
+void three(t_list **a_head, t_list **b_head, t_metrics *metrics);
+void five(t_list **a_head, t_list **b_head, t_metrics *metrics);
 // Bonus
 
 bool	checker(t_list **a_head, t_list **b_head, int size);

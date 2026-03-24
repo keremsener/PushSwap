@@ -6,21 +6,12 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/23 16:52:22 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/24 11:59:35 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void three(t_list **a_head, t_list **b_head, t_metrics *metrics)
-{
-	while (get_int(get_min_node(*a_head)) != get_int(*a_head))
-		ra(a_head, &metrics->ops);
-	pb(b_head, a_head, &metrics->ops);
-	if (get_int(*a_head) != get_int(get_min_node(*a_head)))
-		sa(a_head, &metrics->ops);
-	pa(a_head, b_head, &metrics->ops);
-}
 static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 {
 	if (ft_lstsize(*a_head) == 2)
@@ -31,19 +22,17 @@ static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 	if (ft_lstsize(*a_head) == 3)
 	{
 		three(a_head, b_head, metrics);
-		return ;					
+		return ;
 	}
+	if (ft_lstsize(*a_head) == 4)
+	{
+		five(a_head, b_head, metrics);
+		return ;
+	}
+	
 	if (ft_lstsize(*a_head) == 5)
 	{
-		while (get_int(get_min_node(*a_head)) != get_int(*a_head))
-			ra(a_head, &metrics->ops);
-		pb(b_head, a_head, &metrics->ops);
-		while (get_int(get_min_node(*a_head)) != get_int(*a_head))
-			ra(a_head, &metrics->ops);
-		pb(b_head, a_head, &metrics->ops);
-		three(a_head, b_head, metrics);
-		pa(a_head, b_head, &metrics->ops);
-		pa(a_head, b_head, &metrics->ops);
+		five(a_head, b_head, metrics);
 		return ;
 	}
 	

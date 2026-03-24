@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_helpers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:50:02 by adede             #+#    #+#             */
-/*   Updated: 2026/03/23 12:52:54 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/24 11:53:58 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,36 @@ int	calc_chunk_size(int total_numbers)
 			i++;
 	}
 	return (i);
+}
+void three(t_list **a_head, t_list **b_head, t_metrics *metrics)
+{
+	while (get_int(get_min_node(*a_head)) != get_int(*a_head))
+		ra(a_head, &metrics->ops);
+	pb(b_head, a_head, &metrics->ops);
+	if (get_int(*a_head) != get_int(get_min_node(*a_head)))
+		sa(a_head, &metrics->ops);
+	pa(a_head, b_head, &metrics->ops);
+}
+void five(t_list **a_head, t_list **b_head, t_metrics *metrics)
+{
+	int size;
+
+	size = 5;
+	while (size >= 0 && (*a_head)->next != NULL)
+	{
+		if (get_int(get_min_node(*a_head)) == get_int(*a_head))
+			pb(b_head, a_head, &metrics->ops);
+		else if (get_int(get_min_node(*a_head)) == get_int(ft_lstlast(*a_head)))
+		{
+			rra(a_head, &metrics->ops);
+			pb(b_head, a_head, &metrics->ops);
+		}
+		else
+			ra(a_head, &metrics->ops);
+		size--;
+	}
+	pa(a_head, b_head, &metrics->ops);
+	pa(a_head, b_head, &metrics->ops);
+	pa(a_head, b_head, &metrics->ops);
+	pa(a_head, b_head, &metrics->ops);
 }
