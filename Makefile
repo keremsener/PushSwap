@@ -6,7 +6,7 @@
 #    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/23 18:36:27 by adede            ###   ########.fr        #
+#    Updated: 2026/03/24 15:28:43 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,4 +131,9 @@ test: samples/$(AMOUNT).txt
 	@$(MAKE) -s > /dev/null
 	@./$(NAME) --$(STRATEGY) --bench $$(cat $<)
 
-.PHONY: all clean fclean re test
+check: samples/$(AMOUNT).txt
+	@$(MAKE) -s > /dev/null
+	@$(MAKE) bonus -s > /dev/null
+	@./$(NAME) --$(STRATEGY) $$(cat $<) | ./checker $$(cat $<)
+
+.PHONY: all clean fclean re bonus test check
