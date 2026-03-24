@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/24 11:59:35 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/24 14:11:52 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,29 @@
 static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 {
 	if (ft_lstsize(*a_head) == 2)
-	{
 		sa(a_head, &metrics->ops);
-		return ;
-	}
-	if (ft_lstsize(*a_head) == 3)
-	{
+	else if (ft_lstsize(*a_head) == 3)
 		three(a_head, b_head, metrics);
-		return ;
-	}
-	if (ft_lstsize(*a_head) == 4)
-	{
+	else if (ft_lstsize(*a_head) == 4 || ft_lstsize(*a_head) == 5)
 		five(a_head, b_head, metrics);
-		return ;
-	}
-	
-	if (ft_lstsize(*a_head) == 5)
+	else
 	{
-		five(a_head, b_head, metrics);
-		return ;
-	}
-	
-	if (metrics->config.strategy == ADAPTIVE)
-	{
-		if (metrics->disorder < 20)
-			selection_sort(a_head, b_head, &metrics->ops);
-		else if (metrics->disorder < 50)
+		if (metrics->config.strategy == ADAPTIVE)
+		{
+			if (metrics->disorder < 20)
+				selection_sort(a_head, b_head, &metrics->ops);
+			else if (metrics->disorder < 50)
+				turk_sort(a_head, b_head, &metrics->ops);
+			else
+				up_turk_sort(a_head, b_head, &metrics->ops);
+		}
+		if (metrics->config.strategy == SIMPLE)
+			insertion_sort(a_head, b_head, &metrics->ops);
+		if (metrics->config.strategy == MEDIUM)
 			turk_sort(a_head, b_head, &metrics->ops);
-		else
+		if (metrics->config.strategy == COMPLEX)
 			up_turk_sort(a_head, b_head, &metrics->ops);
 	}
-	if (metrics->config.strategy == SIMPLE)
-		selection_sort(a_head, b_head, &metrics->ops);
-	if (metrics->config.strategy == MEDIUM)
-		turk_sort(a_head, b_head, &metrics->ops);
-	if (metrics->config.strategy == COMPLEX)
-		up_turk_sort(a_head, b_head, &metrics->ops);
 }
 
 int	main(int argc, const char *argv[])
@@ -70,7 +57,6 @@ int	main(int argc, const char *argv[])
 	sort(&a_head, &b_head, &metrics);
 	if (metrics.config.bench_mode)
 		print_bench(metrics);
-	// print_stack(a_head, b_head);
 	ft_lstclear(&a_head, free);
 	return (0);
 }
