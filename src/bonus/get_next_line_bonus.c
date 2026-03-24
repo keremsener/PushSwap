@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:27:27 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/24 15:24:49 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/24 15:29:56 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	*helper(char **stash, char *buff)
 	return (line);
 }
 
-static void free_stash(char *stash, char *buff)
+static void	free_stash(char *stash, char *buff)
 {
 	free(buff);
 	free(stash);
