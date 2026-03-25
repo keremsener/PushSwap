@@ -6,7 +6,7 @@
 #    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/24 15:28:43 by adede            ###   ########.fr        #
+#    Updated: 2026/03/25 09:46:02 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,6 +116,7 @@ clean:
 	@printf "$(YELLOW)Cleaning objects$(RESET)\n"
 	@rm -f $(OBJS) $(OBJS_BONUS)
 	@$(MAKE) -s -C $(LIBFT_DIR) clean
+	@find samples -type f ! -name '100.txt' ! -name '500.txt' -delete
 
 fclean: clean
 	@printf "$(RED)Cleaning all$(RESET)\n"
