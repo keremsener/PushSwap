@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 09:01:09 by adede             #+#    #+#             */
-/*   Updated: 2026/03/24 12:01:20 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/25 12:00:51 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,31 +40,29 @@ static bool	str_is_int(const char *argument)
 	return (true);
 }
 
-static t_list	*parse_number(const char *argument)
+static bool	parse_number(const char *argument, t_list **list)
 {
-	t_list	*list;
 	char	**split_arg;
 	int		*val;
 	int		i;
 
-	list = NULL;
 	split_arg = ft_split(argument, ' ');
 	if (!split_arg[0])
-		error();
+		return (false);
 	i = 0;
 	while (split_arg[i])
 	{
 		if (!str_is_int(split_arg[i]))
-			error();
+			return (free(split_arg[i]), free(split_arg), false);
 		val = ft_calloc(1, sizeof(int));
 		if (!val)
-			return (NULL);
+			return (free(split_arg[i]), free(split_arg), false);
 		*val = ft_atoi(split_arg[i]);
-		ft_lstadd_back(&list, ft_lstnew(val));
+		ft_lstadd_back(list, ft_lstnew(val));
 		free(split_arg[i++]);
 	}
 	free(split_arg);
-	return (list);
+	return (true);
 }
 
 static void	parse_option(const char *argument, t_config *config)
@@ -83,7 +81,7 @@ static void	parse_option(const char *argument, t_config *config)
 		error();
 }
 
-static void	check_duplicate(t_list *list)
+static bool	check_duplicate(t_list *list)
 {
 	t_list	*outer;
 	t_list	*inner;
@@ -95,11 +93,12 @@ static void	check_duplicate(t_list *list)
 		while (inner)
 		{
 			if (get_int(inner) == get_int(outer))
-				error();
+				return (true);
 			inner = inner->next;
 		}
 		outer = outer->next;
 	}
+	return (false);
 }
 
 t_list	*parse(int argc, const char *argv[], t_config *config)
@@ -112,7 +111,17 @@ t_list	*parse(int argc, const char *argv[], t_config *config)
 	while (argi < argc && !ft_strncmp(argv[argi], "--", 2))
 		parse_option(argv[argi++], config);
 	while (argi < argc)
-		ft_lstadd_back(&list, parse_number(argv[argi++]));
-	check_duplicate(list);
+	{
+		if (!parse_number(argv[argi++], &list))
+		{
+			ft_lstclear(&list, free);
+			error();
+		}
+	}
+	if (check_duplicate(list))
+	{
+		ft_lstclear(&list, free);
+		error();
+	}
 	return (list);
 }
