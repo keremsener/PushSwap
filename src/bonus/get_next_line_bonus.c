@@ -6,77 +6,86 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:27:27 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/25 10:32:19 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/25 15:05:55 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 #include <stdlib.h>
 
-static char	*helper(char **stash, char *buff)
+static void	*free_stash(char **stash)
+{
+	free(*stash);
+	*stash = NULL;
+	return (NULL);
+}
+
+static char	*helper(char **stash)
 {
 	int		counter;
 	char	*line;
 	char	*temp;
 
 	counter = 0;
-	free (buff);
 	if (!*stash || **stash == '\0')
-	{
-		free(*stash);
-		*stash = NULL;
-		return (NULL);
-	}
+		return (free_stash(stash));
 	while ((*stash)[counter] && (*stash)[counter] != '\n')
 		counter++;
 	if ((*stash)[counter] == '\n')
 		counter++;
 	line = ft_substr(*stash, 0, counter);
+	if ((*stash)[counter] == '\0')
+	{
+		free_stash(stash);
+		return (line);
+	}
 	temp = *stash;
 	*stash = ft_substr(temp, counter, ft_strlen(temp) - counter);
-	free (temp);
+	free(temp);
 	return (line);
 }
 
 static int	read_into_stash(int fd, char **stash, char *buff)
 {
-	int		counter;
+	int		bytes;
 	char	*temp;
 
-	counter = 1;
-	while (!ft_strchr(*stash, '\n') && counter != 0)
+	bytes = 1;
+	while (!ft_strchr(*stash, '\n') && bytes != 0)
 	{
-		counter = read(fd, buff, BUFFER_SIZE);
-		if (counter == -1)
-			return (-1);
-		buff[counter] = '\0';
+		bytes = read(fd, buff, BUFFER_SIZE);
+		if (bytes < 0)
+			return (bytes);
+		buff[bytes] = '\0';
 		temp = ft_strjoin(*stash, buff);
 		free(*stash);
 		*stash = temp;
 		if (!*stash)
 			return (-1);
 	}
-	return (0);
+	return (bytes);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*stash;
 	char		*buff;
+	int			bytes;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (!stash)
+	{
+		stash = ft_strdup("");
+		if (!stash)
+			return (NULL);
+	}
 	buff = malloc(BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
-	if (!stash)
-		stash = ft_strdup("");
-	if (read_into_stash(fd, &stash, buff) == -1)
-	{
-		free(buff);
-		free(stash);
-		stash = NULL;
-		return (NULL);
-	}
-	return (helper(&stash, buff));
+	bytes = read_into_stash(fd, &stash, buff);
+	free(buff);
+	if (bytes < 0 || !stash || *stash == '\0')
+		return (free_stash(&stash));
+	return (helper(&stash));
 }

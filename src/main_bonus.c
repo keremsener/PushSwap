@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
+/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 10:18:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/25 11:25:20 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/25 15:04:06 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "get_next_line_bonus.h"
 
-static void	execute_command(t_list **a_head, t_list **b_head, char *line)
+static bool	execute_command(t_list **a_head, t_list **b_head, char *line)
 {
 	if (!ft_strncmp(line, "sa\n", 3))
 		swap(a_head);
@@ -38,7 +38,8 @@ static void	execute_command(t_list **a_head, t_list **b_head, char *line)
 	else if (!ft_strncmp(line, "pb\n", 3))
 		push(a_head, b_head);
 	else
-		error();
+		return (false);
+	return (true);
 }
 
 static void	sort(t_list **a_head, t_list **b_head)
@@ -48,7 +49,13 @@ static void	sort(t_list **a_head, t_list **b_head)
 	line = get_next_line(0);
 	while (line)
 	{
-		execute_command(a_head, b_head, line);
+		if (!execute_command(a_head, b_head, line))
+		{
+			ft_lstclear(a_head, free);
+			ft_lstclear(b_head, free);
+			free(line);
+			error();
+		}
 		free(line);
 		line = get_next_line(0);
 	}
