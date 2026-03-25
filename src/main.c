@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/25 12:11:11 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/25 16:00:59 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics, int size)
 {	
-	if (size == 2)
+	if (size == 2 && metrics->config.strategy == ADAPTIVE)
 		sa(a_head, &metrics->ops);
-	else if (size == 3)
+	else if (size == 3 && metrics->config.strategy == ADAPTIVE)
 		three(a_head, b_head, metrics);
-	else if (size == 4 || size == 5)
+	else if ((size == 4 || size == 5) && metrics->config.strategy == ADAPTIVE)
 		five(a_head, b_head, metrics);
 	else
 	{
