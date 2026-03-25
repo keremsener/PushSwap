@@ -1,6 +1,6 @@
-*This project has been created as part of the 42 curriculum by ksener (algorithms and stack operations) and adede (parsing, disorder computation, Makefile, and header configuration).*
+*This project has been created as part of the 42 curriculum by ksener, adede.*
 
----
+# Push_swap
 
 ## Description
 
@@ -9,8 +9,6 @@
 The project focuses on understanding algorithmic complexity in a practical way. You are given two stacks and eleven operations to manipulate them. The challenge is not just to sort the numbers, but to choose and implement the right algorithms that scale well as the input grows larger.
 
 This project demonstrates the crucial difference between algorithmic approaches: sorting a fully random list requires a completely different strategy than sorting an almost-sorted list. Through this work, you'll implement and compare four distinct sorting strategies—Simple (O(n²)), Medium (O(n√n)), Complex (O(n log n)), and Adaptive—each optimized for different data characteristics.
-
----
 
 ## Instructions
 
@@ -63,21 +61,19 @@ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 
 The program uses exactly 11 operations to manipulate the two stacks:
 
-| Operation | Description |
-|-----------|-------------|
-| `sa` | Swap the first two elements of Stack A |
-| `sb` | Swap the first two elements of Stack B |
-| `ss` | Swap the first two elements of both stacks |
-| `pa` | Move the top element from Stack B to Stack A |
-| `pb` | Move the top element from Stack A to Stack B |
-| `ra` | Rotate Stack A upward (top element goes to bottom) |
-| `rb` | Rotate Stack B upward |
-| `rr` | Rotate both stacks upward |
-| `rra` | Rotate Stack A downward (bottom element goes to top) |
-| `rrb` | Rotate Stack B downward |
-| `rrr` | Rotate both stacks downward |
-
----
+|   Operation   | Description                                           |
+|---------------|-------------------------------------------------------|
+|   `sa`        | Swap the first two elements of Stack A                |
+|   `sb`        | Swap the first two elements of Stack B                |
+|   `ss`        | Swap the first two elements of both stacks            |
+|   `pa`        | Move the top element from Stack B to Stack A          |
+|   `pb`        | Move the top element from Stack A to Stack B          |
+|   `ra`        | Rotate Stack A upward (top element goes to bottom)    |
+|   `rb`        | Rotate Stack B upward                                 |
+|   `rr`        | Rotate both stacks upward                             |
+|   `rra`       | Rotate Stack A downward (bottom element goes to top)  |
+|   `rrb`       | Rotate Stack B downward                               |
+|   `rrr`       | Rotate both stacks downward                           |
 
 ## Algorithm Explanation and Justification
 
@@ -202,46 +198,16 @@ To pass evaluation, the program must meet the following benchmarks:
 ```
 push_swap/
 ├── src/
-│   ├── main.c                      # Main entry point
-│   ├── main_bonus.c                # Bonus program entry point
-│   ├── commands/                   # Stack manipulation operations
-│   │   ├── push.c
-│   │   ├── swap.c
-│   │   ├── rotate.c
-│   │   └── rotate_reverse.c
-│   ├── sorts/
-│   │   ├── simple/
-│   │   │   ├── bubble_sort.c
-│   │   │   ├── insertion_sort.c
-│   │   │   └── selection_sort.c
-│   │   ├── medium/
-│   │   │   └── turk_sort.c
-│   │   └── complex/
-│   │       └── upgraded_turk_sort.c
-│   ├── utils/
-│   │   ├── parse.c                 # Input parsing and validation
-│   │   ├── error.c                 # Error handling
-│   │   ├── get.c                   # Helper functions for data access
-│   │   ├── sort_helpers.c          # Common sorting utilities
-│   │   ├── compute_disorder.c      # Disorder measurement
-│   │   ├── print_stack.c           # Stack visualization
-│   │   └── print_bench.c           # Performance metrics
-│   └── bonus/
-│       ├── checker_bonus.c         # Sorting validation
-│       └── get_next_line_bonus.c   # Line reading for checker
-├── libft/                          # Custom C library
-│   ├── memory/                     # Memory manipulation functions
-│   ├── string/                     # String operations
-│   ├── character/                  # Character classification
-│   ├── lists/                      # Linked list operations
-│   ├── ft_printf/                  # Printf implementation
-│   └── libft.h                     # Library header
-├── includes/
-│   ├── push_swap.h                 # Main header file
-│   └── get_next_line_bonus.h       # Bonus header
-├── samples/                        # Test data files
-├── Makefile                        # Build configuration
-└── README.md                       # This file
+│   ├── main.c      # Main entry point
+│   ├── commands/   # Stack manipulation operations
+│   ├── sorts/      # Sorting algorithms
+│   ├── utils/      # Helper functions and common sorting utilities
+│   └── bonus/      # 'checker' bonus program files
+├── libft/          # Custom libc library
+├── includes/       # Headers
+├── samples/        # Test data samples
+├── Makefile        # Build configuration
+└── README.md       # This file
 ```
 
 ---
@@ -255,25 +221,24 @@ push_swap/
 
 ### C Programming
 - [Parsing Command Line Arguments in C - Stack Overflow](https://stackoverflow.com/questions/9642732/parsing-command-line-arguments-in-c)
+- [exit() - Terminating a Process - The Open Group](https://pubs.opengroup.org/onlinepubs/7908799/xsh/_exit.html)
 
 ### Push Swap Specific
 - [Push Swap - The Least Amount of Moves with Two Stacks - Medium](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
 - [How to Over-Optimize an Algorithm: Push Swap 42 School Project - Medium](https://medium.com/@kilfenbaridon/how-to-over-optimize-an-algorithm-push-swap-42-school-project-d01a50e5fd78)
 - [Push Swap Turk Algorithm Explained in 6 Steps - Medium](https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0)
 
+### Project Structuring
+- [ANSI Escape Sequences - Christian Petersen (fnky) - GitHub](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797)
+- [Automated Code Documentation - Doxygen](https://www.doxygen.nl/manual/index.html)
+
 ### AI Usage
 
-**AI Assistance in This Project:**
 AI tools were used strategically to enhance productivity:
 - **Disorder Calculation Logic**: AI helped clarify the mathematical approach for disorder computation
 - **Documentation and README**: AI assisted in structuring and refining this README file
 
-**Human Work:**
-- Core algorithm implementations (Chunk-based sorting, Radix sort approaches)
-- Stack operation implementations
-- Performance optimization and tuning
-- Project structure and build configuration
-- All debugging and validation
+No AI was used to generate the library code **directly**; all functions were personally implemented but assistively tested.
 
 ---
 
@@ -286,33 +251,25 @@ To test the program with different input sizes:
 ./push_swap 3 2 1
 
 # Medium test with random numbers
-./push_swap $(shuf -i 1-100 -n 100)
+./push_swap $(shuf -i 0-100 -n 100)
 
 # Large test with benchmark
-./push_swap $(shuf -i 1-500 -n 500) --bench
+./push_swap $(shuf -i 0-9999 -n 500) --bench
+# or
+make test AMOUNT=500
 
 # Test with explicit flags
 ./push_swap --simple 5 4 3 2 1
-./push_swap --complex $(shuf -i 1-500 -n 500)
+./push_swap --complex $(shuf -i 0-9999 -n 100)
+# or
+make test STRATEGY=simple
+make test STRATEGY=medium
 
 # Verify with checker
 ARG="4 67 3 87 23"; ./push_swap --adaptive $ARG | ./checker $ARG
+# or
+make check AMOUNT=100 STRATEGY=adaptive
 ```
-
-### Error Handling Tests
-
-```bash
-# Invalid arguments (non-integers)
-./push_swap 3 2 hello
-
-# Duplicate values
-./push_swap 3 2 3 1
-
-# Out of range
-./push_swap 2147483648 1 2
-```
-
----
 
 ## Contributors
 
