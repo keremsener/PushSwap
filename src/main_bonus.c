@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 10:18:57 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/24 09:36:49 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/25 11:25:20 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ int	main(int argc, const char *argv[])
 	else
 		ft_putendl_fd("KO", 1);
 	ft_lstclear(&a_head, free);
+	ft_lstclear(&b_head, free);
 	return (0);
 }

@@ -6,17 +6,14 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/25 10:02:22 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/25 11:32:11 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
+static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics, int size)
 {
-	int	size;
-
-	size = ft_lstsize(*a_head);
 	if (size == 2)
 		sa(a_head, &metrics->ops);
 	else if (size == 3)
@@ -57,7 +54,7 @@ int	main(int argc, const char *argv[])
 	metrics.disorder = compute_disorder(a_head);
 	if (metrics.disorder == 0)
 		return (0);
-	sort(&a_head, &b_head, &metrics);
+	sort(&a_head, &b_head, &metrics, ft_lstsize(a_head));
 	if (metrics.config.bench_mode)
 		print_bench(metrics);
 	ft_lstclear(&a_head, free);
