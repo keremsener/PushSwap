@@ -6,7 +6,7 @@
 #    By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 13:36:52 by ksener            #+#    #+#              #
-#    Updated: 2026/03/25 09:46:02 by adede            ###   ########.fr        #
+#    Updated: 2026/03/25 15:47:45 by adede            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ OBJS			=	$(SRCS:.c=.o)
 SRC_BONUS		=	checker_bonus.c \
 					get_next_line_bonus.c \
 
-SRCS_BONUS		=	$(addprefix src/,$(MAIN_BONUS)) \
+SRCS_BONUS		=	$(addprefix src/bonus/,$(MAIN_BONUS)) \
 					$(addprefix src/commands/,$(SRC_COMMANDS)) \
 					$(addprefix src/utils/,$(SRC_UTILS)) \
 					$(addprefix src/bonus/,$(SRC_BONUS)) \
