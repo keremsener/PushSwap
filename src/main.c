@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:47:20 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/24 15:32:37 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/25 10:02:22 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,31 @@
 
 static void	sort(t_list **a_head, t_list **b_head, t_metrics *metrics)
 {
-	if (ft_lstsize(*a_head) == 2)
+	int	size;
+
+	size = ft_lstsize(*a_head);
+	if (size == 2)
 		sa(a_head, &metrics->ops);
-	else if (ft_lstsize(*a_head) == 3)
+	else if (size == 3)
 		three(a_head, b_head, metrics);
-	else if (ft_lstsize(*a_head) == 4 || ft_lstsize(*a_head) == 5)
+	else if (size == 4 || size == 5)
 		five(a_head, b_head, metrics);
 	else
 	{
 		if (metrics->config.strategy == ADAPTIVE)
 		{
-			if (metrics->disorder < 20)
+			if (metrics->disorder < 0.2)
 				selection_sort(a_head, b_head, &metrics->ops);
-			else if (metrics->disorder < 50)
+			else if (metrics->disorder < 0.5)
 				turk_sort(a_head, b_head, &metrics->ops);
 			else
 				up_turk_sort(a_head, b_head, &metrics->ops);
 		}
-		if (metrics->config.strategy == SIMPLE)
+		else if (metrics->config.strategy == SIMPLE)
 			selection_sort(a_head, b_head, &metrics->ops);
-		if (metrics->config.strategy == MEDIUM)
+		else if (metrics->config.strategy == MEDIUM)
 			turk_sort(a_head, b_head, &metrics->ops);
-		if (metrics->config.strategy == COMPLEX)
+		else if (metrics->config.strategy == COMPLEX)
 			up_turk_sort(a_head, b_head, &metrics->ops);
 	}
 }
