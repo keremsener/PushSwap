@@ -6,7 +6,7 @@
 /*   By: ksener <ksener@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 12:50:02 by adede             #+#    #+#             */
-/*   Updated: 2026/03/25 09:49:45 by ksener           ###   ########.fr       */
+/*   Updated: 2026/03/25 11:18:30 by ksener           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,23 @@ void	five(t_list **a_head, t_list **b_head, t_metrics *metrics)
 {
 	int	i;
 	int	size;
+	int	index;
 
 	i = 0;
 	while (i < 2)
 	{
 		size = ft_lstsize(*a_head);
-		while (get_int(*a_head) != get_int(get_min_node(*a_head)))
-			ra(a_head, &metrics->ops);
+		index = get_index(*a_head, get_min_node(*a_head));
+		if (index <= (size - index))
+		{
+			while (get_int(*a_head) != get_int(get_min_node(*a_head)))
+				ra(a_head, &metrics->ops);
+		}
+		else
+		{
+			while (get_int(*a_head) != get_int(get_min_node(*a_head)))
+				rra(a_head, &metrics->ops);
+		}
 		pb(b_head, a_head, &metrics->ops);
 		i++;
 	}
