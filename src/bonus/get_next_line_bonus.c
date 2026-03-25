@@ -6,7 +6,7 @@
 /*   By: adede <adede@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:27:27 by ksener            #+#    #+#             */
-/*   Updated: 2026/03/24 15:29:56 by adede            ###   ########.fr       */
+/*   Updated: 2026/03/25 10:32:19 by adede            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,32 @@ static char	*helper(char **stash, char *buff)
 	return (line);
 }
 
-static void	free_stash(char *stash, char *buff)
+static int	read_into_stash(int fd, char **stash, char *buff)
 {
-	free(buff);
-	free(stash);
+	int		counter;
+	char	*temp;
+
+	counter = 1;
+	while (!ft_strchr(*stash, '\n') && counter != 0)
+	{
+		counter = read(fd, buff, BUFFER_SIZE);
+		if (counter == -1)
+			return (-1);
+		buff[counter] = '\0';
+		temp = ft_strjoin(*stash, buff);
+		free(*stash);
+		*stash = temp;
+		if (!*stash)
+			return (-1);
+	}
+	return (0);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*stash;
 	char		*buff;
-	int			counter;
 
-	counter = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buff = malloc(BUFFER_SIZE + 1);
@@ -58,17 +71,12 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (!stash)
 		stash = ft_strdup("");
-	while (!ft_strchr(stash, '\n') && counter != 0)
+	if (read_into_stash(fd, &stash, buff) == -1)
 	{
-		counter = read(fd, buff, BUFFER_SIZE);
-		if (counter == -1)
-		{
-			free_stash(stash, buff);
-			stash = NULL;
-			return (NULL);
-		}
-		buff[counter] = '\0';
-		stash = ft_strjoin(stash, buff);
+		free(buff);
+		free(stash);
+		stash = NULL;
+		return (NULL);
 	}
 	return (helper(&stash, buff));
 }
